@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-family: 'dana';
+}
+body{
+    direction: rtl;
+    padding: 0 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    
+}
+.form_student{
+    
+    margin-top: 60px;
+    width: 800px;
+    height: 90vh;
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.form_student h1{
+    margin-right: 20px;
+}
+.lastName{
+    margin-right: 100px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.name{
+    display: flex;
+    margin-right: 20px;
+    flex-direction: column;
+
+    
+}
+.name_lastname{
+    display: flex;
+    margin-top: 13px;
+}
+.name_lastname input{
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid rgba(68, 68, 68, 0.378);
+    padding: 10px;
+}
+.name_lastname label{
+    margin-bottom: 3px;
+    font-size: 14px;
+    font-weight: 600;
+}
+#file_input{
+    border: none;
+    /* text-align: center; */
+    height: 35px;
+    /* background-color: red; */
+}
+#submit_student{
+    width: 39.5%;
+    padding: 2px 25px;
+    margin-right: 417px;
+    transform: translateY(-30px);
+    background-color: rgb(0, 111, 0);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 19px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+#submit_student:hover{
+    background-color: rgba(14, 227, 14, 0.745);
+}
+/*  Student information page */
+.studentinforMation{
+    margin-top: 100px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 900px;
+    height: 60vh;
+    padding: 10px;  
+    display: flex; 
+    position: relative;
+    gap: 20px;
+}
+.info_st{
+    margin-right: 30px;
+}
+
+.studentinforMation span{
+    font-weight: 500;
+    font-size: 16px;
+
+    /* margin-right: 50px; */
+}
+.studentinforMation p{
+    font-weight: 500;
+    width: 80px;
+    font-size: 20px;
+    color: rgb(26, 117, 3);
+    
+}
+.student_info_show{
+    padding: 0px;
+    margin-top: 5px;
+    text-align: center;
+    width: 300px;
+    display: flex;
+    color: rgb(0, 0, 0);
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.207);
+    padding: 9px;
+    
+    
+}
+.photo-student img{
+    width: 200px;
+    border-radius: 10px;
+
+}
+#ba_omid{
+    width: 200px;
+   
+   position: absolute;
+   left: 50px;
+   top:3px;
+}
+.findStudent{
+    position: absolute;
+    right: 10px;
+    top: 20px;
+}
+
+/* 
+.form_student{
+    border: 2px solid black;
+    padding: 10px;
+}
+.form_student div{
+    padding: 10px;
+    margin-top: 10px;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(215, 215, 215, 0.479);
+    border-radius: 10px;
+
+}
+.form_student div input{
+    border: none;
+    width: 300px;
+    height: 35px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.903);
+    border-radius: 5px;
+} */
