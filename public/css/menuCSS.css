@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'dana';
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.layout-menu {
+    width: 200px;
+    height: 100vh;
+    background-color: #ffffff;
+    padding-top: 20px;
+    position: fixed;
+    right: 10px;
+    top: 0;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    overflow: scroll;
+}
+
+    ::-webkit-scrollbar{
+        width: 20px;
+    }
+    ::-webkit-scrollbar-track{
+        background-color: #ffffff;
+    }
+    ::-webkit-slider-thumb{
+        background-color: #ff00e1;
+    }
+.menu-inner {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.menu-item {
+    margin-bottom: 5px;
+    
+
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
+}
+
+.menu-item a {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    /* margin-right: 20px; */
+    padding: 12px;
+    border-radius: 5px;
+    padding-right: 30px;
+    transition: all 0.2s ease-in-out ;
+}
+
+.menu-item a:hover {
+    background-color: #00921d;
+    color: white;
+}
+
+.menu-sub {
+    display: none;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-height: 200px;
+    /* overflow-y: auto; */
+    padding: 5px 0;
+}
+
+.menu-item.active .menu-sub {
+    display: block;
+}
+
+.menu-sub .menu-item a {
+    font-size: 14px;
+    padding: 8px 20px;
+    
+
+    
+}
+
+.menu-sub .menu-item a i {
+    margin-left: 8px;
+}
+    .menu-item i{
+        transform: translateX(15px);
+    }
+.menu-sub .menu-item a:hover {
+    background-color: #ff60ec;
+}
+
+.menu-toggle i.fa-chevron-down {
+    transition: transform 0.3s;
+    /* background-color: red; */
+    
+}
+
+.menu-item.active .menu-toggle i.fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.layout-page {
+    margin-right: 270px;
+    padding: 20px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .layout-menu {
+        width: 100%;
+        height: auto;
+        position: static;
+    }
+    .layout-page {
+        margin-right: 0;
+    }
+}
+.fa-chevron-down{
+    margin-right: 25px;
+    margin-top: 5px;
+}
+::placeholder{
+    font-size: 15px;
+    padding: 20px;
+}

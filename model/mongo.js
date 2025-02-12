@@ -19,24 +19,21 @@ const studentSchema = new Schema(
       maxwidth: 50,
       minWidth: 3,
     },
+
     LastName_student: {
       type: String,
       required: true,
       maxwidth: 100,
       minWidth: 3,
     },
-    granfather_student: {
-      type: String,
-      required: true,
-      maxwidth: 50,
-      minWidth: 3,
-    },
+   
     number_student: {
       type: Number,
       required: true,
       minWidth: 10,
       maxwidth: 10,
     },
+   
     number_father: {
       type: Number,
       required: true,
@@ -90,6 +87,10 @@ const studentSchema = new Schema(
       required: false,
     },
     matigate: {
+      type: String,
+      required: false,
+    },
+    class_student: {
       type: String,
       required: false,
     }

@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نمایش اطلاعات شاگرد</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<%- include('menu.ejs') %>
     <style>
         body {
             background-color: #f1f1f1;
@@ -15,7 +9,7 @@
         }
         .container {
             max-width: 400px;
-            margin-top: 50px;
+            margin-top: 0px;
             padding: 20px;
         }
         .card {
@@ -62,47 +56,62 @@
     </style>
 </head>
 <body>
-
+    <% studentInfo.forEach(element => { %>
+        
+  
     <div class="container">
         <!-- کارت اطلاعات شاگرد -->
         <div class="card">
-            <img src="./6.png" alt="تصویر شاگرد" class="profile-pic">
+            <img src="<%= element.photo_student  %>" alt="تصویر شاگرد" class="profile-pic">
             <div class="info-container">
                 <div class="info">
+                    <strong>آیدی:</strong>
+                    <span><%= element.id_number  %></span>
+                </div>
+                <div class="info">
                     <strong>نام:</strong>
-                    <span>علی</span>
+                    <span><%= element.name_student  %></span>
                 </div>
                 <div class="info">
                     <strong>نام خانوادگی:</strong>
-                    <span>رضایی</span>
+                    <span><%= element.LastName_student  %></span>
                 </div>
                 <div class="info">
                     <strong>شماره تماس:</strong>
-                    <span>09123456789</span>
+                    <span><%= element.number_student  %></span>
                 </div>
-                <div class="info">
-                    <strong>ایمیل:</strong>
-                    <span>ali@example.com</span>
-                </div>
+               
                 <div class="info">
                     <strong>رشته تحصیلی:</strong>
-                    <span>مهندسی نرم‌افزار</span>
+                    <span> <%= element.subject  %></span>
+                </div>
+                <div class="info">
+                    <strong> صنف شاگرد:</strong>
+                    <span> <%= element.class_student  %></span>
+                </div>
+                <div class="info">
+                    <strong> استاد شاگرد:</strong>
+                    <span> <%= element.teacher_name  %></span>
+                </div>
+                <div class="info">
+                    <strong> تایم شاگرد:</strong>
+                    <span> <%= element.time_student  %></span>
                 </div>
                 <div class="info">
                     <strong>فیس:</strong>
-                    <span>1,000 افغانی</span>
+                    <span><%= element.all_money  %></span>
                 </div>
                 <div class="info">
                     <strong>مقدار پرداخت شده:</strong>
-                    <span>5000 افغانی</span>
+                    <span><%= element.payment_money  %></span>
                 </div>
                 <div class="info">
                     <strong>مقدار باقی‌مانده:</strong>
-                    <span>500 افغانی</span>
+                    <span><%= element.remaining_money  %></span>
                 </div>
             </div>
         </div>
     </div>
-
+    <%  }); %>
 </body>
 </html>
