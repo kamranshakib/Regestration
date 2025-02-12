@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فرم ثبت‌نام شاگردان</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- اضافه کردن Font Awesome برای آیکون‌ها -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            /* font-family: Arial, sans-serif; */
+            font-family: 'dana';
+        }
+        .container {
+            max-width: 900px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        h2 {
+            color: #000000;
+            text-align: center;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .input-group-text {
+            background-color: #009105;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            z-index: 5;
+        }
+        .input-group .form-control {
+            border-radius: 0px;
+            padding-left: 35px;
+        }
+        .form-control{
+            transform: translateX(5px);
+        }
+        .input-group {
+            position: relative;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .image-upload input[type="file"] {
+            display: none;
+        }
+        .image-upload label {
+            padding: 10px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgba(12, 241, 111, 0.193);
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .image-upload img {
+            max-width: 100px;
+            margin-top: 10px;
+            position: absolute;
+            left: 100px;
+            bottom: 230px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+           
+        }
+    </style>
+</head>
+<body class="p-4">
+
+    <div class="container">
+        <h2 class="mb-4">فرم ثبت‌نام شاگردان</h2>
+        <form>
+            <div class="row">
+                <!-- ستون اول -->
+                <div class="col-md-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" placeholder="نام" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                        <input type="text" class="form-control" placeholder="نام پدر" required>
+                       
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                        <input type="text" class="form-control" placeholder="نام خانوادگی" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                        <input type="text" class="form-control" placeholder=" نمبره تذکره" required>
+                       
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                        <input type="text" class="form-control" placeholder="آدرس" required>
+                    </div>
+                </div>
+
+                <!-- ستون دوم -->
+                <div class="col-md-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                        <input type="text" class="form-control" placeholder="شماره تماس" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                        <input type="text" class="form-control" placeholder="شماره تماس پدر" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
+                        <input type="date" class="form-control" placeholder="تاریخ تولد" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                        <input type="text" class="form-control" placeholder=" صنف" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                        <input type="text" class="form-control" placeholder=" استاد شاگرد" required>
+                    </div>
+                </div>
+
+                <!-- ستون سوم -->
+                <div class="col-md-4">
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-book-open"></i></span>
+                        <input type="text" class="form-control" placeholder="رشته تحصیلی" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-school"></i></span>
+                        <input type="text" class="form-control" placeholder="تایم" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
+                        <select class="form-control">
+                            <option value="مرد">مرد</option>
+                            <option value="زن">زن</option>
+                        </select>
+                    </div>
+
+                    
+                </div>
+            </div>
+
+            <!-- سطر فیلدهای مالی -->
+            <div class="row mt-3 text-center">
+                <div class="col-3">
+                    <label class="form-label">فیس:</label>
+                    <input type="number" class="form-control small-input" required>
+                </div>
+                <div class="col-3">
+                    <label class="form-label">مقدار پرداخت شده:</label>
+                    <input type="number" class="form-control small-input" required>
+                </div>
+                <div class="col-3">
+                    <label class="form-label">مقدار باقی‌مانده:</label>
+                    <input type="number" class="form-control small-input" required>
+                </div>
+                <div class="col-3">
+                    <label class="form-label">تخفیف:</label>
+                    <input type="number" class="form-control small-input" required>
+                </div>
+            </div>
+
+            <!-- بارگذاری عکس -->
+            <div class="image-upload">
+                <label for="file-upload">بارگذاری عکس</label>
+                <input type="file" id="file-upload" accept="image/*" />
+                <div id="image-preview"></div>
+            </div>
+
+            
+            <div class="footer">
+                <button style="width: 100%;" type="submit" class="btn btn-light">ثبت‌نام</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById("file-upload");
+        const imagePreview = document.getElementById("image-preview");
+
+        fileInput.addEventListener("change", function() {
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement("img");
+                    img.src = e.target.result;
+                    imagePreview.innerHTML = ""; 
+                    imagePreview.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
+</body>
+</html>

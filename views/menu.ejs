@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="light-style layout-menu-fixed layout-compact" data-theme="theme-default">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل مدیریت</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tahoma', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .layout-menu {
+            width: 200px;
+            height: 100vh;
+            background-color: #ffffff;
+            padding-top: 20px;
+            position: fixed;
+            right: 10px;
+            top: 0;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            overflow: scroll;
+        }
+
+            ::-webkit-scrollbar{
+                width: 20px;
+            }
+            ::-webkit-scrollbar-track{
+                background-color: #ffffff;
+            }
+            ::-webkit-slider-thumb{
+                background-color: #ff00e1;
+            }
+        .menu-inner {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .menu-item {
+            margin-bottom: 5px;
+            
+
+            /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
+        }
+
+        .menu-item a {
+            color: #000;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            /* margin-right: 20px; */
+            padding: 12px;
+            border-radius: 5px;
+            padding-right: 30px;
+            transition: all 0.2s ease-in-out ;
+        }
+
+        .menu-item a:hover {
+            background-color: #00921d;
+            color: white;
+        }
+
+        .menu-sub {
+            display: none;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-height: 200px;
+            /* overflow-y: auto; */
+            padding: 5px 0;
+        }
+
+        .menu-item.active .menu-sub {
+            display: block;
+        }
+
+        .menu-sub .menu-item a {
+            font-size: 14px;
+            padding: 8px 20px;
+            
+    
+            
+        }
+
+        .menu-sub .menu-item a i {
+            margin-left: 8px;
+        }
+            .menu-item i{
+                transform: translateX(15px);
+            }
+        .menu-sub .menu-item a:hover {
+            background-color: #ff60ec;
+        }
+
+        .menu-toggle i.fa-chevron-down {
+            transition: transform 0.3s;
+            /* background-color: red; */
+            
+        }
+
+        .menu-item.active .menu-toggle i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .layout-page {
+            margin-right: 270px;
+            padding: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .layout-menu {
+                width: 100%;
+                height: auto;
+                position: static;
+            }
+            .layout-page {
+                margin-right: 0;
+            }
+        }
+        .fa-chevron-down{
+            margin-right: 25px;
+            margin-top: 5px;
+        }
+        ::placeholder{
+            font-size: 15px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-container">
+        <aside class="layout-menu">
+            <div class="app-brand text-center p-2 " style="transform: translateX(20px);">
+                <img  src="./cropped-kabul-omid-kurs-2022logo.png" width="120" height="120" alt="لوگو">
+                <h2>OMID</h2>
+            </div>
+            <ul class="menu-inner">
+                <li class="menu-item">
+                    <a class="menu-toggle" href="#"><i class="fas fa-users"></i> ثبت نام  <i   class="fas fa-chevron-down" style="margin-right: 38px;"></i></a>
+                    <ul class="menu-sub">
+                        <li class="menu-item"><a href="#"><i class="fas fa-chalkboard-teacher"></i>   شاگرد</a></li>
+                        <li class="menu-item"><a href="#"><i class="fas fa-chalkboard-teacher"></i>  استاد</a></li>
+                        
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-toggle" href="#"><i class="fas fa-chalkboard"></i> صنوف <i   class="fas fa-chevron-down" style="margin-right: 45px;" ></i></a>
+                    <ul class="menu-sub">
+                        <li class="menu-item"><a href="#"><i class="fas fa-chalkboard-teacher"></i> کامپیوتر </a></li>
+                        <li class="menu-item"><a href="#"><i class="fas fa-chalkboard-teacher"></i>  انگلیسی</a></li>
+                        <li class="menu-item"><a href="#"><i class="fas fa-chalkboard-teacher"></i>  ریاضی</a></li>
+                        <li class="menu-item"><a href="#"><i class="fas fa-chalkboard-teacher"></i> کانکوری </a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-toggle" href="#"><i class="fas fa-users"></i> اساتید <i   class="fas fa-chevron-down"  style="margin-right: 40px;"></i></a>
+                    <ul class="menu-sub">
+                        <li class="menu-item"><a href="#"><i class="fas fa-chalkboard-teacher"></i> فقیر احمد جویا</a></li>
+                        <li class="menu-item"><a href="#"><i class="fas fa-chalkboard-teacher"></i> ادریس تاجی</a></li>
+                        <li class="menu-item"><a href="#"><i class="fas fa-chalkboard-teacher"></i> استاد شیرین</a></li>
+                        <li class="menu-item"><a href="#"><i class="fas fa-chalkboard-teacher"></i> استاد عبدالباقی</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-toggle" href="#"><i class="fas fa-users"></i> شاگردان <i   class="fas fa-chevron-down" ></i></a>
+                    <ul class="menu-sub">
+                      <form action="/" > <input type="text" name="" placeholder="نام شاگرد را وارد کنید" style="padding: 10px 3px; border: none; border-bottom: 1px solid rgba(55, 55, 55, 0.174);" > <input type="submit" style="margin: 10px 60px; border-radius: 5px; border: none; padding: 4px 10px; background-color: #00921d; color: white;"></form>
+                       
+                    </ul>
+                </li>
+                <li class="menu-item"><a href="#"><i class="fas fa-dollar-sign"></i> بخش مالی</a></li>
+            </ul>
+        </aside>
+        <div class="layout-page"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.menu-toggle').on('click', function(e) {
+                e.preventDefault();
+                $(this).next('.menu-sub').slideToggle();
+                $(this).parent('.menu-item').toggleClass('active');
+            });
+        });
+    </script>
+</body>
+</html>

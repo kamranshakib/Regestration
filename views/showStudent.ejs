@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نمایش اطلاعات شاگرد</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f1f1f1;
+            /* font-family: 'Tahoma', sans-serif; */
+            direction: rtl;
+            text-align: right;
+            font-family: 'dana';
+        }
+        .container {
+            max-width: 400px;
+            margin-top: 50px;
+            padding: 20px;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 20px;
+            display: flex;
+            /* align-items: center; */
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            border: 3px solid #027300;
+            object-fit: cover;
+            margin-right: 90px; /* فاصله بین عکس و متن */
+            margin-left: 0;
+        }
+        .info-container {
+            flex: 1;
+            margin-top: 10px;
+        }
+        .info {
+            width: 300px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.192);
+            justify-content: space-between;
+            /* margin-bottom: 10px; */
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding: 0px 10px;
+            
+        }
+        .info strong {
+            color: #008423;
+            min-width: 120px;
+        }
+        .info span {
+            color: #333;
+            /* font-weight: bold; */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- کارت اطلاعات شاگرد -->
+        <div class="card">
+            <img src="./6.png" alt="تصویر شاگرد" class="profile-pic">
+            <div class="info-container">
+                <div class="info">
+                    <strong>نام:</strong>
+                    <span>علی</span>
+                </div>
+                <div class="info">
+                    <strong>نام خانوادگی:</strong>
+                    <span>رضایی</span>
+                </div>
+                <div class="info">
+                    <strong>شماره تماس:</strong>
+                    <span>09123456789</span>
+                </div>
+                <div class="info">
+                    <strong>ایمیل:</strong>
+                    <span>ali@example.com</span>
+                </div>
+                <div class="info">
+                    <strong>رشته تحصیلی:</strong>
+                    <span>مهندسی نرم‌افزار</span>
+                </div>
+                <div class="info">
+                    <strong>فیس:</strong>
+                    <span>1,000 افغانی</span>
+                </div>
+                <div class="info">
+                    <strong>مقدار پرداخت شده:</strong>
+                    <span>5000 افغانی</span>
+                </div>
+                <div class="info">
+                    <strong>مقدار باقی‌مانده:</strong>
+                    <span>500 افغانی</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
