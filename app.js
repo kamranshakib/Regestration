@@ -37,7 +37,6 @@ app.get('/tableOFStudentss',(req,res)=>{
       .catch((err) => console.log(err));
 })
 
-// Search Students
 
 app.get("/regestrationStudent", (req, res) => {
   res.render("studentRegestration");
