@@ -1,3 +1,4 @@
+
 <%- include('menu.ejs') %>
     <style>
         body {
@@ -56,8 +57,9 @@
     </style>
 </head>
 <body>
-    <% studentInfo.forEach(element => { %>
-        
+
+   <% result.forEach(element => { %>
+    
   
     <div class="container">
         <!-- کارت اطلاعات شاگرد -->
@@ -112,6 +114,8 @@
             </div>
         </div>
     </div>
-    <%  }); %>
+    <% }); %>
+
+    <button style="position: absolute; left: 10px; top: 10px;"><a href="/tableOFStudentss">برکشت</a></button>
 </body>
 </html>

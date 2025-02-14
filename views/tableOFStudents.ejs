@@ -1,0 +1,31 @@
+
+<%- include('searchStudent.ejs') %>
+
+<div class="container" style="z-index: 5;background-color: rgba(240, 248, 255, 0.249); backdrop-filter: blur(2px);">
+    
+<table  class="table table-hover" >
+    <thead>
+        <tr style="color: rgb(0, 0, 0);">
+            <th>اسم</th>
+            <th>ولد</th>
+            <th>تخلص</th>
+            <th>صنف</th>
+            <th>نتایج بیشتر</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% students.forEach(element => { %>
+            <tr >
+                <td><%= element.name_student %></td>
+                <td><%= element.fatherName_student %></td>
+                <td><%= element.LastName_student %></td>
+                <td><%= element.class_student %> </td>
+                <td><a href="/showStudents/<%=element._id%>">مشخصات </a></td>
+               
+            </tr>
+            <%  }); %>
+            
+        </tbody>
+    </table>
+</div>
+    

@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="layout-container">
-        <aside class="layout-menu">
+        <aside class="layout-menu" style="z-index: 5; background-color: rgba(255, 255, 255, 0.342); backdrop-filter: blur(5px);">
             <div class="app-brand text-center p-2 " style="transform: translateX(20px);">
                 <img  src="/image/cropped-kabul-omid-kurs-2022logo.png" width="120" height="120" alt="لوگو">
                 <h2>OMID</h2>
@@ -53,17 +53,16 @@
                         <li class="menu-item"><a href="#"><i class="fas fa-chalkboard-teacher"></i> استاد عبدالباقی</a></li>
                     </ul>
                 </li>
+
                 <li class="menu-item">
-                    <a class="menu-toggle" href="#"><i class="fas fa-users"></i> شاگردان <i   class="fas fa-chevron-down" ></i></a>
-                    <ul class="menu-sub">
-                      <form action="/findStudent" method="post" > <input type="text" name="search" placeholder="نام شاگرد را وارد کنید" style="padding: 10px 3px; border: none; border-bottom: 1px solid rgba(55, 55, 55, 0.174);" > <input type="submit" style="margin: 10px 60px; border-radius: 5px; border: none; padding: 4px 10px; background-color: #00921d; color: white;"></form>
-                       
-                    </ul>
+                 <a  href="/searchStudent" > <i class="fas fa-users"></i>شاگردان</a>
                 </li>
+
                 <li class="menu-item"><a href="#"><i class="fas fa-dollar-sign"></i> بخش مالی</a></li>
             </ul>
         </aside>
         <div class="layout-page"></div>
+        <!-- <img style="z-index:1; width: 200px;position: absolute; bottom: 0px; right: -70px;" src="/image/nature.png" alt=""> -->
     </div>
 
     <script>
@@ -75,5 +74,8 @@
             });
         });
     </script>
+
+    
+    <%- include('footer.ejs') %>
 </body>
 </html>

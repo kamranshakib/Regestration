@@ -1,0 +1,63 @@
+<%- include('menu.ejs') %>
+<style>
+     .container {
+            max-width: 900px;
+            background: #ffffff5a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            backdrop-filter: blur(5px);
+            
+        }
+        .listTop{
+            display: flex;
+            gap: 50px;
+            border-bottom: 2px solid black;
+            margin-bottom: 20px;
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+       
+</style>
+
+<div class="container">
+    
+        <form class="listTop" action="/searchStudents" method="post">
+            <div class="classes">
+                صنف شاگرد:
+                <select name="classesSearch" >
+                    <option value="کانکوری">کانکوری</option>
+                    <option value="کامپیوتر">کامپیوتر</option>
+                    <option value="ریاضی">ریاضی</option>
+                    <option value="انگلیسی">انگلیسی</option>
+                </select>
+            </div>
+            <div class="teachers">
+                استاد شاگرد:
+                <select name="teacherSearchStudents" >
+                    <option value=" ادریس تاجی">ادریس تاجی</option>
+                    <option value="فقیر احمد جویا">فقیر احمد جویا</option>
+                    <option value="استاد شیرین">استاد شیرین</option>
+                    <option value="غلام رحمان">غلام رحمان</option>
+                </select>
+            </div>
+            <div class="teachers">
+                نام شاگرد:
+               <input type="text" name="nameSearch">
+            </div>
+            <div class="submit">
+                <input type="submit" value="جستجو ">
+            </div>
+            
+        </div>
+
+        </form>
+       
+    <br><br>
+   
+    
+    
+
+</div>
+
