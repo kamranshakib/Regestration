@@ -156,10 +156,11 @@ app.get("/regestrationTeacher", (req, res) => {
                       // show classes of academi
 
  app.get('/showClass',(rea,res)=>{
+  res.render('classes')
 
-  StudentDB.find()
-  .then((result)=> res.render('showClass',{result}) )
-  .catch((err)=> console.log(err))
+  // StudentDB.find()
+  // .then((result)=> res.render('showClass',{result}) )
+  // .catch((err)=> console.log(err))
 
  })                     
             
@@ -179,7 +180,16 @@ app.post('/searchClass',(req,res)=>{
                       
 
 
-
+app.get('/Class/:string',(req,res)=>{
+  const clas = req.params.string;
+ 
+  StudentDB.find({
+    class_student: `${clas}`
+  })
+  .then((result)=> res.render('showClass',{result}))
+  .catch((err)=> console.log(err))
+  
+})
 
 
 
