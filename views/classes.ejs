@@ -1,8 +1,48 @@
 <%-  include('searchClass.ejs') %>
 
+<style>
+   
+    .classes{
+        display: grid;
+        grid-template-columns: 250px 250px 250px;
+        width: 800px;
+        gap: 10px;
+    }
+    .class{
+        background-color: rgba(255, 255, 255, 0.295);
+        height: 80px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.144);
+        backdrop-filter: blur(2px);
+        font-size: 20px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        
+    }
+    .class:hover{
+        background-color: green;
+        color: white;
+    }
+    .classes a{
+        text-decoration: none;
+        color: black;
+    }
+</style>
+<div class="container" style=" margin: 15% 24%;">
+    <div class="classes" style="margin-right: 40px;">
+        <a href="/Class/ریاضی"><div class="class">ریاضیات <i class="fas fa-school"></i> </div></a>
+       <a href="/Class/کانکوری"> <div class="class">کانکوری<i class="fas fa-school"></i> </div></a>
+       <a href="/Class/کامپیوتر"> <div class="class">کامپیوتر <i class="fas fa-computer"></i> </div></a>
+       <a href="/Class/انگلیسی"> <div class="class">انگلیسی <i class="fas fa-school"></i> </div></a>
+       <a href=""> <div class="class">آلمانی <i class="fas fa-school"></i> </div></a>
+       <a href=""> <div class="class">ریاضیات <i class="fas fa-school"></i> </div></a>
+       
+    </div>
 
-<div class="container">
-aaa
 </div>
+
 
 
