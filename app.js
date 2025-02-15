@@ -17,7 +17,10 @@ app.get("/", (req, res) => {
 //  نشان دادن صفحه ثبت نام شاگردان **
 
 app.get("/searchStudent", (req, res) => {
-  res.render("searchStudent");
+
+  StudentDB.find().sort({createdAt:-1})
+  .then((result) => res.render("tableOFStudents", { students: result }))
+  .catch((err) => console.log(err));
 }); 
 
 app.post("/searchStudents", (req, res) => {
@@ -28,7 +31,7 @@ app.post("/searchStudents", (req, res) => {
     query.class_student = classesSearch;
   if(teacherSearchStudents && teacherSearchStudents !=="") query.teacher_name = teacherSearchStudents;
 
-  StudentDB.find(query)
+  StudentDB.find(query).sort({createdAt : -1})
     .then((result) => res.render("tableOFStudents", { students: result }))
     .catch((err) => console.log(err));
 
@@ -128,6 +131,59 @@ app.get("/regestrationTeacher", (req, res) => {
 
 //     res.redirect('/teacher')
 // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      // show classes of academi
+
+ app.get('/showClass',(rea,res)=>{
+
+  StudentDB.find()
+  .then((result)=> res.render('showClass',{result}) )
+  .catch((err)=> console.log(err))
+
+ })                     
+            
+//   search classes 
+
+app.post('/searchClass',(req,res)=>{
+  let {classesSearch , teacherSearchStudents} = req.body;
+  let query = {}
+  if(classesSearch && classesSearch !=="") query.class_student = classesSearch;
+  if(teacherSearchStudents && teacherSearchStudents !== "") query.teacher_name = teacherSearchStudents
+
+  StudentDB.find(query)
+  .then((result) => res.render('showClass',{result}))
+  .catch((err)=> console.log(err))
+
+})
+                      
+
+
+
+
+
+
+
 
 app.listen(3000, () => {
   console.log("Server on port 3000");
