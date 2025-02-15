@@ -18,16 +18,40 @@ app.get("/", (req, res) => {
 
 app.get("/searchStudent", (req, res) => {
   res.render("searchStudent");
-});
+}); 
 
 app.post("/searchStudents", (req, res) => {
   const { teacherSearchStudents, classesSearch, nameSearch } = req.body; // teacher_name:`${teacherSearchStudents}`,// class_student: `${classesSearch}
+  let query = {};
+  if(nameSearch) query.name_student = nameSearch;
+  if(classesSearch && classesSearch !=="")
+    query.class_student = classesSearch;
+  if(teacherSearchStudents && teacherSearchStudents !=="") query.teacher_name = teacherSearchStudents;
 
-  StudentDB.find({ class_student: `${classesSearch}` })
+  StudentDB.find(query)
     .then((result) => res.render("tableOFStudents", { students: result }))
     .catch((err) => console.log(err));
 
 });
+
+
+
+
+
+
+
+
+
+
+// app.post("/searchStudents", (req, res) => {
+//   const { teacherSearchStudents, classesSearch, nameSearch } = req.body; // teacher_name:`${teacherSearchStudents}`,// class_student: `${classesSearch}
+//   console.log(nameSearch)
+//   StudentDB.find({ name_student: `${nameSearch}` })
+//     .then((result) => res.render("tableOFStudents", { students: result }))
+//     .catch((err) => console.log(err));
+
+// });
+
 
 app.get('/tableOFStudentss',(req,res)=>{
     const { teacherSearchStudents, classesSearch, nameSearch } = req.body; // teacher_name:`${teacherSearchStudents}`,// class_student: `${classesSearch}
@@ -50,6 +74,7 @@ app.get("/showStudents/:id", (req, res) => {
   .then((result) => res.render('showStudent' , {result}) )
   .catch((err) => console.log(err));
 });
+
 
 //       **  ثبت نام شاگردان در دیتایس*****
 app.post("/RegestrationStudent", upload.single("photo_student"), (req, res) => {
