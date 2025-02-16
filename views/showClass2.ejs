@@ -1,0 +1,59 @@
+
+<%- include('menu.ejs') %>
+
+
+
+
+<style>
+    .table tr:nth-child(even){
+     background-color: rgba(181, 180, 180, 0.193);
+    
+     
+    
+      }
+      .table tr:nth-child(even):hover{
+         color: rgb(2, 150, 9);
+     
+      }
+ </style>
+ 
+ <div class="container" style="z-index: 5;margin-top: 10px; background-color:  rgba(240, 248, 255, 0.249); backdrop-filter: blur(2px); width: 800px;">
+     
+ <table  class="table table-hover" >
+     <thead>
+         <tr style="color: rgb(0, 0, 0);">
+             <th>صنف</th>
+             <th>استاد</th>
+             <th>فیس</th>
+             <th>وضعیت</th>
+             <th>  مشخصات</th>
+         </tr>
+     </thead>
+     <tbody>
+       
+        <% result.forEach(element => { %>
+             <tr >
+                    <td><%= element.nameOfClass %></td>
+                    <td><%= element.teacherNameOfClass %></td>
+                    <td><%= element.moneyOfeveryStClass %></td>
+                    <td><%= element.TimeOfClass %> </td>
+                    <td><a href="/">مشخصات صنف</a></td>
+                   
+                </tr>
+           
+            <%  }); %>
+               
+             
+                
+                
+         </tbody>
+     </table>
+     <a href="/runForClass"><button style="position: absolute; top: -20px ; right: -10px; font-size: 30px; color: red; border: none; background: transparent;">&Cross;</button></a>
+ </div>
+    
+ 
+
+
+<body>
+
+
