@@ -1,4 +1,4 @@
-<%- include('searchClass.ejs') %>
+ 
 
 <style>
     .table tr:nth-child(even){
@@ -22,21 +22,26 @@
              <th>استاد</th>
              <th>فیس</th>
              <th>وضعیت</th>
-             <th>نتایج بیشتر</th>
+             <th>  مشخصات</th>
          </tr>
      </thead>
      <tbody>
-         <% result.forEach(element => { %>
+       
+        <% result.forEach(element => { %>
              <tr >
-                 <td><%= element.class_student %></td>
-                 <td><%= element.teacher_name %></td>
-                 <td>1000</td>
-                 <td>فعال </td>
-                 <td><a href="/showStudents/<%=element._id%>">مشخصات </a></td>
-                
-             </tr>
-             <%  }); %>
+                    <td><%= element.nameOfClass %></td>
+                    <td><%= element.teacherNameOfClass %></td>
+                    <td><%= element.moneyOfeveryStClass %></td>
+                    <td>فعال </td>
+                    <td><a href="/">مشخصات صنف</a></td>
+                   
+                </tr>
+           
+            <%  }); %>
+               
              
+                
+                
          </tbody>
      </table>
  </div>
@@ -45,49 +50,6 @@
 
 
 <body>
-
-<!-- <div class="container">
-    <h2>صنف‌ها</h2>
-
-   
-    <div class="accordion" id="classAccordion">
-        
-        <% result.forEach(element => { %>
-        <div class="accordion-item">
-            <div class="class-header" id="classHeadingOne" data-bs-toggle="collapse" data-bs-target="#classCollapseOne" aria-expanded="true" aria-controls="classCollapseOne">
-                <span><i class="fas fa-chalkboard-teacher"></i> <%=element.class_student%></span>
-                <span>استاد : <span style="color: rgb(41, 164, 0);margin-left: 20px; font-weight: bold;"> <%=element.teacher_name%></span>     فیس: 1500 افغانی | وضعیت: فعال  </span>
-            </div>
-            <div id="classCollapseOne" class="accordion-collapse collapse" aria-labelledby="classHeadingOne" data-bs-parent="#classAccordion">
-                <div class="class-details">
-                    <p>تعداد شاگردان: 25</p>
-                    <p>سهم استاد: 900 افغانی</p>
-                    <p>زمان برگزاری: دوشنبه‌ها ساعت 10 صبح</p>
-                    <div class="icons">
-                        <i class="fas fa-users"></i> <span>25 شاگرد</span>
-                        <i class="fas fa-check-circle"></i> <span>فعال</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-       
-            
-         <% }); %>
-        
-
-    </div>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
- -->
-
-
-
-
 
 
 

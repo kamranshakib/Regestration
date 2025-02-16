@@ -1,0 +1,150 @@
+<%- include('menu.ejs') %>
+
+
+
+<style>
+    body {
+        background-color: #f1f4f8;
+        font-family: 'Roboto', sans-serif;
+    }
+    .container {
+        max-width: 700px; /* کاهش عرض فرم */
+        background: #ffffff5a;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        margin-top: 40px;
+        position: relative;
+        backdrop-filter: blur(5px);
+
+    }
+    h2 {
+        color: #000000;
+        text-align: center;
+        font-size: 28px; /* کاهش اندازه عنوان */
+        margin-bottom: 30px;
+    }
+    .form-label {
+        font-weight: 500;
+        font-size: 14px;
+        color: #333;
+    }
+    input, select, button {
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-top: 5px;
+        width: 100%;
+        font-size: 14px;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+    }
+    input:focus, select:focus, button:focus {
+        border-color: #4a90e2;
+        box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+    }
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+    }
+    .form-row .col-3 {
+        flex: 1;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        margin-right: 75px;
+        transform: translateX(-5px);
+    }
+    .image-upload input[type="file"] {
+        display: none;
+    }
+    .image-upload label {
+        padding: 10px;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        border-radius: 8px;
+        box-shadow: inset 0 0 10px rgba(12, 241, 111, 0.193);
+        cursor: pointer;
+    }
+    
+    .input-group .input-group-text {
+        background-color: #008216;
+        color: white;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .input-group .form-control {
+        padding-left: 10px;
+        /* border-radius: 8px; */
+        /* background-color: red; */
+    }
+
+    .row{
+        margin-right: 50px;
+    }
+</style>
+</head>
+<body class="p-4">
+
+<div class="container">
+    <h2> ایجاد صنف</h2>
+    <form action="/createClass" method="post">
+        <div class="row">
+            <!-- ستون اول -->
+            <div class="col-md-4">
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input name="nameOfClass" type="text" class="form-control" placeholder="اسم صنف" required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                    <input name="teacherNameOfClass" type="text" class="form-control" placeholder=" استاد صنف" required>
+                   
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                    <input name="TimeOfClass" type="text" class="form-control" placeholder="تایم صنف" required>
+                   
+                   
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input name="moneyOfeveryStClass" type="text" class="form-control" placeholder="فیس هر شاگرد" required>
+                   
+                  
+                </div>
+
+            </div>
+
+            <!-- ستون دوم -->
+            <div class="col-md-5">
+                <div class="input-group mb-3">
+                    <span>تاریح شروع :</span>
+                    <input name="startDateOfClass" type="date" class="form-control" placeholder="تاریخ شروع" required>
+                </div>
+                <div class="input-group mb-3">
+                    <span>تاریح ختم :</span>
+                    <input name="FinishDateOfClass" style="margin-right: 10px;" type="date" class="form-control" placeholder="تاریخ شروع" required>
+                </div>
+
+               
+                
+
+        
+        <div class="footer">
+            <button type="submit" class="btn btn-success">ثبت‌نام</button>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>
+

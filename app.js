@@ -2,7 +2,7 @@ const express = require("express");
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const multer = require("multer");
-const { StudentDB, teacherDB } = require("./model/mongo");
+const { StudentDB, teacherDB , classDB } = require("./model/mongo");
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
@@ -136,27 +136,47 @@ app.get("/regestrationTeacher", (req, res) => {
 
 
 
+//                      create class **
+
+app.get('/createClass',(req,res)=>{
+  res.render('createClass')
+})
+ 
+
+app.post('/createClass',(req,res)=>{
+  const saveClass = new classDB(req.body)
+
+  saveClass.save()
+  .then((result) => console.log("okey every think is good"))
+  .catch((err)=> console.log(err))
+  res.redirect('/createClass')
+
+})
+
+app.get('/runForClass',(req,res)=>{
+  classDB.find()
+  .then((result)=> res.render('ShowOfClasses',{result}))
+  .catch((err)=> console.log(err))
+
+})
 
 
+ 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                      // show classes of academi
+ 
+                     // show classes of academi
 
  app.get('/showClass',(rea,res)=>{
-  res.render('classes')
+  res.render('showClass')
+
+
+
+
+
+
+
+ 
 
   // StudentDB.find()
   // .then((result)=> res.render('showClass',{result}) )
@@ -166,30 +186,51 @@ app.get("/regestrationTeacher", (req, res) => {
             
 //   search classes 
 
-app.post('/searchClass',(req,res)=>{
-  let {classesSearch , teacherSearchStudents} = req.body;
-  let query = {}
-  if(classesSearch && classesSearch !=="") query.class_student = classesSearch;
-  if(teacherSearchStudents && teacherSearchStudents !== "") query.teacher_name = teacherSearchStudents
+// app.post('/searchClass',(req,res)=>{
+//   let {classesSearch , teacherSearchStudents} = req.body;
+//   let query = {}
+//   if(classesSearch && classesSearch !=="") query.class_student = classesSearch;
+//   if(teacherSearchStudents && teacherSearchStudents !== "") query.teacher_name = teacherSearchStudents
 
-  StudentDB.find(query)
-  .then((result) => res.render('showClass',{result}))
-  .catch((err)=> console.log(err))
+//   StudentDB.find(query)
+//   .then((result) => res.render('showClass',{result}))
+//   .catch((err)=> console.log(err))
 
-})
+// })
                       
+       
 
+app.get('/Class/:string',async (req,res)=>{
+  try{
+    const className = req.params.string;
+    const classWithTeachers = await StudentDB.aggregate([
+      {
+        $match: {class_student: className}
+      },
+      {
+        $group:{ 
+         _id:"$class_student",
+        teacher:{$addToSet:"$teacher_name"},
+        // students:{$push:"$name_student"},
+          }
+      }
+    ]);
+    
+      res.render('showClass',{result:classWithTeachers[0],className })
+  }
+  catch(err){
+    console.log(err)
+  }
 
-app.get('/Class/:string',(req,res)=>{
-  const clas = req.params.string;
  
-  StudentDB.find({
-    class_student: `${clas}`
-  })
-  .then((result)=> res.render('showClass',{result}))
-  .catch((err)=> console.log(err))
+  // StudentDB.find({
+  //   class_student: `${clas}`
+  // })
+  // .then((result)=> res.render('showClass',{result}))
+  // .catch((err)=> console.log(err))
   
 })
+
 
 
 

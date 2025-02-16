@@ -152,10 +152,37 @@ const teacherInfo = new Schema({
 },{timestamps: true})
 
 
+
+        //   DB for classes 
+        
+  const classes = new Schema({
+    nameOfClass: {
+      type: String
+    },
+    teacherNameOfClass: {
+      type: String
+    },
+    TimeOfClass : {
+      type: String
+    },
+    moneyOfeveryStClass : {
+      type: String
+    },
+    startDateOfClass : {
+      type: String
+    },
+    FinishDateOfClass : {
+      type: String
+    }
+   
+  },{timestamps:true})
+
+
+
+
+const classDB = mongoose.model('Class',classes)
 const teacherDB = mongoose.model('teacher',teacherInfo )
-
-
 
 const StudentDB = mongoose.model("Students", studentSchema);
 
-module.exports={teacherDB, StudentDB}
+module.exports={teacherDB, StudentDB,classDB}
