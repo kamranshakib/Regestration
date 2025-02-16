@@ -46,6 +46,7 @@ app.post("/searchStudents", (req, res) => {
 
 
 
+
 // app.post("/searchStudents", (req, res) => {
 //   const { teacherSearchStudents, classesSearch, nameSearch } = req.body; // teacher_name:`${teacherSearchStudents}`,// class_student: `${classesSearch}
 //   console.log(nameSearch)
@@ -55,7 +56,7 @@ app.post("/searchStudents", (req, res) => {
 
 // });
 
-
+ 
 app.get('/tableOFStudentss',(req,res)=>{
     const { teacherSearchStudents, classesSearch, nameSearch } = req.body; // teacher_name:`${teacherSearchStudents}`,// class_student: `${classesSearch}
 
@@ -66,7 +67,9 @@ app.get('/tableOFStudentss',(req,res)=>{
 
 
 app.get("/regestrationStudent", (req, res) => {
-  res.render("studentRegestration");
+  classDB.find()
+  .then((result)=>res.render('studentRegestration',{result}))
+  .catch((err)=>console.log(err))
 });
 
 app.get("/showStudents/:id", (req, res) => {
@@ -162,8 +165,18 @@ app.get('/runForClass',(req,res)=>{
 
 
  
+          //  search class
 
+app.post('/searchClass',(req,res)=>{
+  const {classesSearch , teacherSearchStudents} = req.body;
+  let query = {}
+  if(classesSearch && classesSearch !=="") query.nameOfClass = classesSearch;
+  if(teacherSearchStudents && teacherSearchStudents !=="") query.teacherNameOfClass = teacherSearchStudents
 
+  classDB.find(query)
+  .then((result)=> res.render('ShowClass2',{result}))
+  .catch((err)=> console.log(err))
+})
  
                      // show classes of academi
 
