@@ -1,118 +1,58 @@
 <%- include('menu.ejs') %>
 
 
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'dana';
-        }
-        body {
-            background-color: #f8f9fa;
-            /* font-family: 'Tahoma', sans-serif; */
-            direction: rtl;
-            text-align: right;
-        }
-        .container {
-            max-width: 400px;
-            margin-top: 50px;
-        }
-        .card {
-            background: #ffffff;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-        }
-        .profile-pic {
-            width: 140px;
-            height: 140px;
-            border-radius: 10px;
-            object-fit: cover;
-            border: 3px solid #008717;
-            margin-left: 20px;
-        }
-        .info-container {
-            flex: 1;
-            width: 100%;
-            margin-top: 10px;
-        }
-        .info-row {
-            margin-right: 20px;
-            margin-top: 5px;
-            width: 100%;
-            display: flex;
-            
-            justify-content: space-between;
-            padding: 6px 0;
-            font-size: 16px;
-        }
-        .info-row svg {
-            width: 20px;
-            height: 20px;
-            margin-left: 8px;
-            color: #007bff;
-        }
-        .label {
-            font-weight: bold;
-            color: #00800b;
-            min-width: 90px;
-        }
-        .value {
-            color: #333;
-            flex: 1;
-        }
-    </style>
-</head>
+
+
+
+
+
+<style>
+    .table tr:nth-child(even){
+     background-color: rgba(181, 180, 180, 0.193);
+    
+     
+    
+      }
+      .table tr:nth-child(even):hover{
+         color: rgb(2, 150, 9);
+     
+      }
+ </style>
+ 
+ <div class="container" style="z-index: 5;background-color: rgba(240, 248, 255, 0.249); backdrop-filter: blur(2px); width: 800px;">
+     
+ <table  class="table table-hover" >
+     <thead>
+         <tr style="color: rgb(0, 0, 0);">
+             <th>اسم</th>
+             <th>تخلص</th>
+             <th>شماره تماس</th>
+             <th>نوع معاش</th>
+             <th>مشخصات</th>
+         </tr>
+     </thead>
+     <tbody>
+       
+        <% result.forEach(element => { %>
+             <tr >
+                    <td><%= element.name_teacher %></td>
+                    <td><%= element.LastName_teacher %></td>
+                    <td><%= element.number_teacher%></td>
+                    <td><%=element.subject_salary_teacher%></td>
+                    <td><a  style="text-decoration: none; color: green;" href="/showTeacher22/<%=element._id%>"> بیشتر بدانید</a></td>
+                   
+                </tr>
+           
+            <%  }); %>
+               
+             
+                
+                
+         </tbody>
+     </table>
+ </div>
+    
+ 
+
+
 <body>
-    <% result.forEach(element => { %>
-        <div class="container">
-            <div class="card">
-                <div class="info-container">
-                    <div class="info-row">
-                        <i data-lucide="user"></i>
-                        <span class="label">نام:</span> <span class="value">دکتر احمدی</span>
-                    </div>
-                    <div class="info-row">
-                        <i data-lucide="briefcase"></i>
-                     <span class="label">عنوان:</span> <span class="value">استاد دانشگاه تهران</span>
-                    </div>
-                    <div class="info-row">
-                        <i data-lucide="graduation-cap"></i>
-                        <span class="label">تخصص:</span> <span class="value">هوش مصنوعی</span>
-                    </div>
-                    <div class="info-row">
-                        <i data-lucide="building"></i>
-                        <span class="label">دانشگاه:</span> <span class="value">هرات</span>
-                    </div>
-                    <div class="info-row">
-                        <i data-lucide="mail"></i>
-                        <span class="label">ایمیل:</span> <span class="value">ahmadi@example.com</span>
-                    </div>
-                    <div class="info-row">
-                        <i data-lucide="phone"></i>
-                        <span class="label">تماس:</span> <span class="value">07921234567</span>
-                    </div>
-                    <div class="info-row">
-                        <i data-lucide="calendar"></i>
-                        <span class="label">سابقه:</span> <span class="value">15 سال تدریس</span>
-                    </div>
-                    <div class="info-row">
-                        <i data-lucide="dollar-sign"></i>
-                        <span class="label">حقوق:</span> <span class="value">20,000 افغانی</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-     <%}); %>
-   
-
-    <script>
-        lucide.createIcons(); // فعال کردن آیکون‌ها
-    </script>
-
-</body>
-</html>

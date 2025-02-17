@@ -124,19 +124,39 @@ app.get("/regestrationTeacher", (req, res) => {
   .catch((err)=> console.log(err))
 });
 
-
+app.get('/showTeacher',(req,res)=>{
+  teacherDB.find()
+  .then((result)=> res.render('showTeacher',{result}))
+  .catch((err)=> console.log(err))
+})
 //   ثبت نام کردن استاد
 
 app.post('/Regester_teacher', upload.single('photo_teacher'),(req,res)=>{
     const teacherInfo = new teacherDB(req.body)
-    const photo = `/image/${req.file.filename}`;
+    let photo = `/image/${req.file.filename}`;
     teacherInfo.photo_teacher = photo;
     teacherInfo.save()
-    .then((result)=>console.log(result))
+    .then((result)=>console.log("regester"))
     .catch((err)=>console.log(err))
+    res.redirect('/regestrationTeacher')
 
 })
+     
+app.get('/showTeacher22/:id',(req,res)=>{
+  const id = req.params.id;
+  console.log(id)
+  teacherDB.find({
+    _id: `${id}`
+  })
+  .then((result)=> res.render('showTeacher2',{result1:result}))
+  .catch((err)=> console.log(err))
+})
+ 
 
+   
+ 
+
+   
 
 
 

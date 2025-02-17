@@ -88,7 +88,7 @@
 
     <div class="container">
         <h2>فرم ثبت‌نام استاد</h2>
-        <form action="/Regester_teacher" method="post"> 
+        <form action="/Regester_teacher" method="post" enctype="multipart/form-data"> 
             <div class="row">
                 <!-- ستون اول -->
                 <div class="col-md-4">
@@ -144,8 +144,11 @@
 
                     
                 </div>
+                
                    <div class="col-md-4">
-                     <div class="input-group mb-3">
+                    
+                    
+                <div class="input-group mb-3">
                     <select name="subject_salary_teacher" >
                         <option value="">انتخاب معاش</option>     
                             <option value="فیصدی">فیصدی</option>

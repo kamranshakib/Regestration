@@ -129,8 +129,8 @@ const teacherInfo = new Schema({
      
       number_pasport_teacher: {
         type: Number,
-        minWidth: 50,
-        maxwidth: 8,
+        minWidth: 2,
+        maxwidth: 50,
       },
       address_teacher: {
         type: String,
@@ -151,6 +151,9 @@ const teacherInfo = new Schema({
       class_teacher: {
         type: String,
       },
+      subject_salary_teacher:{
+        type: String
+      }
 
 },{timestamps: true})
 
