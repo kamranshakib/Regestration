@@ -119,21 +119,23 @@ app.post("/RegestrationStudent", upload.single("photo_student"), (req, res) => {
 
 //  teacher
 app.get("/regestrationTeacher", (req, res) => {
-  res.render("teacherRegestration");
+  classDB.find()
+  .then((result)=> res.render('teacherRegestration',{result}))
+  .catch((err)=> console.log(err))
 });
+
 
 //   ثبت نام کردن استاد
 
-// app.post('/Regester_teacher', upload.single('photo_teacher'),(req,res)=>{
-//     const teacherInfo = new teacherDB(req.body)
-//     const photo = `/image/${req.file.filename}`;
-//     teacherInfo.photo_teacher = photo;
-//     teacherInfo.save()
-//     .then((result)=>console.log(result))
-//     .catch((err)=>console.log(err))
+app.post('/Regester_teacher', upload.single('photo_teacher'),(req,res)=>{
+    const teacherInfo = new teacherDB(req.body)
+    const photo = `/image/${req.file.filename}`;
+    teacherInfo.photo_teacher = photo;
+    teacherInfo.save()
+    .then((result)=>console.log(result))
+    .catch((err)=>console.log(err))
 
-//     res.redirect('/teacher')
-// })
+})
 
 
 

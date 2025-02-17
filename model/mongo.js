@@ -123,6 +123,9 @@ const teacherInfo = new Schema({
         minWidth: 10,
         maxwidth: 10,
       },
+      email_teacher: {
+        type: String,
+      },
      
       number_pasport_teacher: {
         type: Number,

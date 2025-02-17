@@ -88,31 +88,31 @@
 
     <div class="container">
         <h2>فرم ثبت‌نام استاد</h2>
-        <form>
+        <form action="/Regester_teacher" method="post"> 
             <div class="row">
                 <!-- ستون اول -->
                 <div class="col-md-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        <input type="text" class="form-control" placeholder="نام" required>
+                        <input name="name_teacher" type="text" class="form-control" placeholder="نام" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
-                        <input type="text" class="form-control" placeholder="نام پدر" required>
+                        <input name="fatherName_teacher" type="text" class="form-control" placeholder="نام پدر" required>
                        
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
-                        <input type="text" class="form-control" placeholder="نام خانوادگی" required>
+                        <input name="LastName_teacher" type="text" class="form-control" placeholder="نام خانوادگی" required>
                        
                        
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                        <input type="email" class="form-control" placeholder="ایمیل" required>
+                        <input name="email_teacher" type="email" class="form-control" placeholder="ایمیل" required>
                        
                       
                     </div>
@@ -123,52 +123,47 @@
                 <div class="col-md-4">
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                        <input type="text" class="form-control" placeholder="شماره تماس" required>
+                        <input name="number_teacher" type="number" class="form-control" placeholder="شماره تماس" required>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                        <input type="password" class="form-control" placeholder=" نمبره تذکره" required>
+                        <input name="number_pasport_teacher" type="text" class="form-control" placeholder=" نمبره تذکره" required>
                     </div>
 
                    
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fas fa-book-open"></i></span>
-                        <input type="text" class="form-control" placeholder="رشته تحصیلی" required>
+                        <input name="subject_teacher" type="text" class="form-control" placeholder="رشته تحصیلی" required>
                     </div>
-
                     <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
-                        <input type="text" class="form-control" placeholder="مقطع تحصیلی" required>
+                        <span class="input-group-text"><i class="fas fa-book-open"></i></span>
+                        <input name="address_teacher" type="text" class="form-control" placeholder=" آدرس" required>
                     </div>
+                   
+
+                    
                 </div>
-
-                <!-- ستون سوم -->
-                <div class="col-md-4">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fas fa-check-circle"></i></span>
-                        <input type="text" class="form-control" placeholder=" معاش " required>
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
-                        <select class="form-control">
-                            <option value="مرد">مرد</option>
-                            <option value="زن">زن</option>
-                        </select>
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fas fa-check-circle"></i></span>
-                        <input type="text" class="form-control" placeholder=" صنف " required>
-                    </div>
+                   <div class="col-md-4">
+                     <div class="input-group mb-3">
+                    <select name="subject_salary_teacher" >
+                        <option value="">انتخاب معاش</option>     
+                            <option value="فیصدی">فیصدی</option>
+                            <option value="ساعت وار">ساعت وار</option>
+                            <option value="ماهوار">ماهوار</option>
+                        
+                    </select>
                 </div>
+                   </div>
+                  
+
+            
             </div>
 
             <!-- بارگذاری عکس -->
             <div class="image-upload  mt-3">
                 <label for="file-upload">بارگذاری عکس</label>
-                <input type="file" id="file-upload" accept="image/*" />
+                <input name="photo_teacher" type="file" id="file-upload" accept="image/*" />
                 <div id="image-preview"></div>
             </div>
 
