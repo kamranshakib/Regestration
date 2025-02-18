@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 const upload = multer({ dest: "public/image/" });
-
+ 
 app.get("/", (req, res) => {
   res.render("menu");
 });
@@ -268,7 +268,21 @@ app.get('/Class/:string',async (req,res)=>{
 
 
 
-
+ 
+// salary of teacher 
+var money = 0;
+StudentDB.find({
+  time_student: "4 الی 5"
+ 
+})
+.then((result)=>{
+  result.forEach(element => {
+    
+     money= money+Number(element.payment_money);
+  });
+  console.log(money)
+})
+.catch((err)=>  console.log(err))
 
 
 app.listen(3000, () => {

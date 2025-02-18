@@ -16,7 +16,7 @@ body {
     background-color: #ffffff;
     padding-top: 20px;
     position: fixed;
-    right: 10px;
+    right: 0px;
     top: 0;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s;
@@ -52,9 +52,11 @@ body {
     align-items: center;
     /* justify-content: center; */
     /* margin-right: 20px; */
-    padding: 12px;
+    /* padding: 12px; */
     border-radius: 5px;
     padding-right: 30px;
+    padding-top: 15px;
+    padding-bottom: 10px;
     transition: all 0.2s ease-in-out ;
 }
 

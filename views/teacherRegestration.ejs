@@ -149,15 +149,26 @@
                     
                     
                 <div class="input-group mb-3">
-                    <select name="subject_salary_teacher" >
-                        <option value="">انتخاب معاش</option>     
-                            <option value="فیصدی">فیصدی</option>
+                    <select name="subject_salary_teacher" id="subject_salary_teacher" >
+                        <option  value="">انتخاب معاش</option>     
+                            <option  value="فیصدی">فیصدی</option>
                             <option value="ساعت وار">ساعت وار</option>
                             <option value="ماهوار">ماهوار</option>
                         
                     </select>
                 </div>
-                   </div>
+
+                <div class="input-group mb-3">
+                    <input id="fisad"  style="display: NONE;" name="salary_fisad" type="text" class="form-control" placeholder="فیصدی از صنف" >
+                    <input id="hour"   style="display: none;" name="salary_hour" type="text" class="form-control" placeholder="ساعت وار" >
+                    <input id="month"  style="display: none;" name="salary_month" type="text" class="form-control" placeholder="ماهوار" >
+                </div>
+
+
+
+
+
+                </div>
                   
 
             
@@ -166,7 +177,7 @@
             <!-- بارگذاری عکس -->
             <div class="image-upload  mt-3">
                 <label for="file-upload">بارگذاری عکس</label>
-                <input name="photo_teacher" type="file" id="file-upload" accept="image/*" />
+                <input name="photo_teacher" type="file" id="file-upload" accept="image/*" required />
                 <div id="image-preview"></div>
             </div>
 
@@ -194,6 +205,53 @@
                 reader.readAsDataURL(file);
             }
         });
+
+
+        const fisad = document.getElementById('fisad')
+        const hour = document.getElementById('hour')
+        const month = document.getElementById('month')
+        const salaryValue = document.getElementById('subject_salary_teacher')
+            
+        
+        salaryValue.addEventListener("change",()=>{
+                let selectValue = salaryValue.value;
+                if(selectValue ==="فیصدی"){
+                    fisad.style.display='block'
+                hour.style.display='none'
+                month.style.display='none'
+                }
+                
+
+
+            if(selectValue ==="ساعت وار"){
+                    hour.style.display='block'
+                    fisad.style.display='none'
+                    month.style.display='none'
+                }
+
+                if(selectValue ==="ماهوار"){
+                     month.style.display='block'
+                hour.style.display='none'
+                fisad.style.display='none'
+                }
+               if(selectValue ===""){
+                month.style.display='none'
+                hour.style.display='none'
+                fisad.style.display='none'
+
+               }
+               
+
+                
+            })
+            
+
+       
+        
+            
+       
+        // Show input for salary of teacher
+
     </script>
 
 </body>

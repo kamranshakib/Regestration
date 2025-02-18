@@ -61,11 +61,29 @@
             margin-top: 10px;
         }
         .image-upload img {
-            max-width: 100px;
+            max-width: 130px;
+            height: 130px;
+            border-radius: 50%;
             margin-top: 10px;
             position: absolute;
-            left: 100px;
-            bottom: 230px;
+            left: 160px;
+            bottom: 220px;
+            
+        }
+        .imageAb{
+            max-width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin-top: 10px;
+            position: absolute;
+            left: 160px;
+            bottom: 220px;
+            background-color: black;
+            
+
+        }
+        .photo_student{
+            background-color: red;
         }
         .footer {
             text-align: center;
@@ -192,19 +210,19 @@
             </div>
 
             <!-- بارگذاری عکس -->
-            <div class="image-upload">
-                <label for="file-upload">بارگذاری عکس</label>
-                <input name="photo_student" type="file" id="file-upload" accept="image/*" />
-                <div id="image-preview"></div>
+            <div class="image-upload" style="margin-top: 10px;">
+                <label style="background-color: rgba(255, 0, 0, 0.103); box-shadow: none;"  for="file-upload" ><span style="color: red;" class="fa fa-cloud-arrow-up"></span><span style="margin-right: 20px; color: rgb(0, 0, 0);">بارگذاری عکس</span></label>
+                <input  name="photo_student" type="file" id="file-upload" accept="image/*" required/>
+                <div id="image-preview"> </div>
             </div>
-
+           
             
             <div class="footer">
                 <button style="width: 100%;" type="submit" class="btn btn-light">ثبت‌نام</button>
             </div>
         </form>
     </div>
-
+    
     <script>
         const fileInput = document.getElementById("file-upload");
         const imagePreview = document.getElementById("image-preview");

@@ -145,12 +145,17 @@ const teacherInfo = new Schema({
       edu_teacher: {
         type: String,
       },
-      salary_teacher: {
-        type: String,
+      
+      salary_fisad:{
+        type:String
       },
-      class_teacher: {
-        type: String,
+      salary_hour:{
+        type:String
       },
+      salary_month:{
+        type:String
+      },
+
       subject_salary_teacher:{
         type: String
       }
