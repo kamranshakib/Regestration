@@ -29,16 +29,16 @@
      <tbody>
        
         <% result.forEach(element => { %>
-             <tr >
+            
+             <tr style="padding: 10px;">
                     <td><%= element.nameOfClass %></td>
                     <td><%= element.teacherNameOfClass %></td>
                     <td><%= element.moneyOfeveryStClass %></td>
                     <td>فعال</td>
                     <td><%=element.TimeOfClass%></td>
-                    <td><a href="/">مشخصات صنف</a></td>
-                   
+                    <td><button style="border: none; background-color: green; color: white; padding: 5px 10px; border-radius: 5px;" type="submit">مشخصات بیشتر</button></td>                   
                 </tr>
-           
+            
             <%  }); %>
                
              

@@ -139,6 +139,10 @@ const teacherInfo = new Schema({
           type: String,
           required: false,
         },
+        time_teacher:{
+          type:String,
+          required: false
+        },
       subject_teacher: {
         type: String,
       },

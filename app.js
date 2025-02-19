@@ -209,15 +209,34 @@ app.post('/searchClass',(req,res)=>{
 
 
 
-
-
- 
+  
 
   // StudentDB.find()
   // .then((result)=> res.render('showClass',{result}) )
   // .catch((err)=> console.log(err))
 
- })                     
+ })     
+ var conter = 0;
+ StudentDB.find({
+  class_student: 'وب سایت',
+  teacher_name: 'ادریس تاجی'
+
+})
+.then((result)=>{
+ for(var i = 0; i<result.length; i++){
+  console.log(result[i].name_student)
+  conter++
+ }
+ console.log(conter)
+})
+.catch((err)=> console.log(err))
+              
+
+
+app.post('/sssss',(req,res)=>{
+  console.log(req.body)
+  res.redirect('/')
+})
             
 //   search classes 
 
@@ -283,6 +302,78 @@ StudentDB.find({
   console.log(money)
 })
 .catch((err)=>  console.log(err))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          // salary part
+app.get('/salaryPart',(req,res)=>{
+  res.render("classes")
+}) 
+var message = ''
+app.get('/paymentMoneySt',(req,res)=>{
+  classDB.find()
+  .then((result)=> res.render('paymentMoneySt',{result , message}))
+  .catch((err)=> console.log(err))
+ 
+})
+
+app.post('/PaymentMoneySt',(req,res)=>{
+  const ns = req.body.name_student;
+  const fs = req.body.fatherName_student;
+  const id_number = req.body.id_number
+  StudentDB.find({
+   id_number: `${id_number}`
+  })
+  .then((result)=>{ 
+    result.forEach(element => {
+     if(element.name_student == ns && element.fatherName_student == fs) {
+      classDB.find()
+      .then((result)=>{
+        res.render("paymentMoneySt",{result,message: 'شاگرد پرداخت کرد'})
+      })
+     }
+     else{
+      classDB.find()
+      .then((result)=>{
+        res.render("paymentMoneySt",{result,message: 'شاگرد  اسم و ولد مشخص ندارد'})
+      })
+    
+     }
+    });
+   
+  })
+  .catch((err)=> console.log(err))
+})
+
+   
+  
+
 
 
 app.listen(3000, () => {

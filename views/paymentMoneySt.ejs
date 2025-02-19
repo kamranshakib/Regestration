@@ -1,0 +1,209 @@
+<%- include('menu.ejs') %>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            /* font-family: Arial, sans-serif; */
+            font-family: 'dana';
+        }
+        .container {
+            max-width: 900px;
+            background: #ffffff5a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            backdrop-filter: blur(5px);
+            
+        }
+        h2 {
+            color: #000000;
+            text-align: center;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .input-group-text {
+            background-color: #009105;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            z-index: 5;
+        }
+        .input-group .form-control {
+            border-radius: 0px;
+            padding-left: 35px;
+        }
+        .form-control{
+            transform: translateX(5px);
+        }
+        .input-group {
+            position: relative;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .image-upload input[type="file"] {
+            display: none;
+        }
+        .image-upload label {
+            padding: 10px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgba(12, 241, 111, 0.193);
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .image-upload img {
+            max-width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin-top: 10px;
+            position: absolute;
+            left: 160px;
+            bottom: 220px;
+            
+        }
+        .imageAb{
+            max-width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin-top: 10px;
+            position: absolute;
+            left: 160px;
+            bottom: 220px;
+            background-color: black;
+            
+
+        }
+        .photo_student{
+            background-color: red;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+           
+        }
+    </style>
+</head>
+<body class="p-4">
+
+    <div class="container">
+        <h2 class="mb-4">فرم پرداخت فیس شاگردان</h2>
+        <form action="/PaymentMoneySt" method="post">
+            <div class="row">
+                <!-- ستون اول -->
+                <div class="col-md-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" name="name_student" placeholder="نام" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                        <input type="text" class="form-control" name="fatherName_student" placeholder="نام پدر" required>
+                       
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                        <input type="text" class="form-control" name="LastName_student" placeholder="نام خانوادگی" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-school"></i></span>
+                        <input type="text" class="form-control" name="id_number" placeholder="آیدی" required>
+                    </div>
+
+                    
+
+                    
+                </div>
+
+                <!-- ستون دوم -->
+                <div class="col-md-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                        <input type="number" class="form-control" name="number_student" placeholder="شماره تماس" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                        <input type="text" class="form-control" name="number_father" placeholder="شماره تماس پدر" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-book-open"></i></span>
+                        <input type="text" class="form-control" name="subject" placeholder="رشته تحصیلی" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-school"></i></span>
+                        <input type="text" class="form-control" name="time_student" placeholder="تایم" required>
+                    </div>
+
+                   
+
+                   
+                  
+                </div>
+
+                <!-- ستون سوم -->
+                <div class="col-md-4">
+                    <div class="input-group mb-3">
+                        <input placeholder="فیس" type="number" name="all_money" class="form-control small-input" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input placeholder="مقدار پرداخت شده" type="number" name="all_money" class="form-control small-input" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input placeholder="مقدار باقی مانده" type="number" name="all_money" class="form-control small-input" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input placeholder="تخفیف" type="number" name="all_money" class="form-control small-input" required>
+                    </div>
+                    
+                    
+                </div>
+                <div class="col-md-4">
+                    <select name="class_student" >
+                        <option value="">انتخاب صنف</option>     
+                        <% result.forEach(element => {  %>
+                            <option value="<%= element.nameOfClass %>"><%= element.nameOfClass %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                
+            </div>
+            <div class="footer">
+                <button style="width: 100%;" type="submit" class="btn btn-success">ثبت‌نام</button>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+      
+    </script>
+
+<div id="message" class="message" style="position: absolute; top: 10px; left: 10px; background-color: #009105;  color: white; padding: 10px;">
+    <% if(message) { %>
+    <h1 style="font-size: 20px;"><%= message %></h1>
+    <% } %>
+</div>
+
+<script>
+    const message = document.getElementById('message')
+    if(message){
+        setInterval(() => {
+            message.style.display='none'
+        }, 2000);
+    }
+  
+
+
+</script>
+</body>
+</html>

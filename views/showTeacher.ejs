@@ -4,8 +4,6 @@
 
 
 
-
-
 <style>
     .table tr:nth-child(even){
      background-color: rgba(181, 180, 180, 0.193);
@@ -17,6 +15,16 @@
          color: rgb(2, 150, 9);
      
       }
+      .container {
+            max-width: 900px;
+            background: #ffffff5a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            backdrop-filter: blur(5px);
+            
+        }
  </style>
  
  <div class="container" style="z-index: 5;background-color: rgba(240, 248, 255, 0.249); backdrop-filter: blur(2px); width: 800px;">
@@ -40,7 +48,7 @@
                     <td><%= element.LastName_teacher %></td>
                     <td><%= element.number_teacher%></td>
                     <td><%=element.subject_salary_teacher%></td>
-                    <td><span><%= element.salary_fisad %></span>
+                    <td><span><%= element.salary_fisad %> <span style="color: green; margin-right: 10px;">   <%= element.time_teacher%></span></span>
                         <span><%= element.salary_month %></span>
                         <span><%= element.salary_hour %></span></td>
                     <td><a  style="text-decoration: none; color: green;" href="/showTeacher22/<%=element._id%>"> بیشتر بدانید</a></td>
