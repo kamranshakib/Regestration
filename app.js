@@ -16,12 +16,12 @@ app.get("/", (req, res) => {
 
 //  نشان دادن صفحه ثبت نام شاگردان **
 
-app.get("/searchStudent", (req, res) => {
+// app.get("/searchStudent", (req, res) => {
 
-  StudentDB.find().sort({createdAt:-1})
-  .then((result) => res.render("tableOFStudents", { students: result }))
-  .catch((err) => console.log(err));
-}); 
+//   StudentDB.find().sort({createdAt:-1})
+//   .then((result) => res.render("tableOFStudents", { students: result }))
+//   .catch((err) => console.log(err));
+// }); 
 
 app.post("/searchStudents", (req, res) => {
   const { teacherSearchStudents, classesSearch, nameSearch } = req.body; // teacher_name:`${teacherSearchStudents}`,// class_student: `${classesSearch}
@@ -32,10 +32,11 @@ app.post("/searchStudents", (req, res) => {
   if(teacherSearchStudents && teacherSearchStudents !=="") query.teacher_name = teacherSearchStudents;
 
   StudentDB.find(query).sort({createdAt : -1})
-    .then((result) => res.render("tableOFStudents", { students: result }))
+    .then((result) => res.render("showStudents2", { students: result }))
     .catch((err) => console.log(err));
 
 });
+
 
 
 
@@ -55,6 +56,18 @@ app.post("/searchStudents", (req, res) => {
 //     .catch((err) => console.log(err));
 
 // });
+
+app.get('/searchStudent',(req,res)=>{
+  classDB.find()
+  .then((result)=>{
+    StudentDB.find()
+    .then((students)=>{
+
+      res.render('searchStudent',{result, students})
+    })
+  })
+  .catch((err)=> console.log(err))
+})
 
  
 app.get('/tableOFStudentss',(req,res)=>{

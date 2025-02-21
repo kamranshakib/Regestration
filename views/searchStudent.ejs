@@ -27,21 +27,19 @@
             <div class="classes">
                 صنف شاگرد:
                 <select name="classesSearch" >
-                    <option value="">انتخاب صنف</option>
-                    <option value="کانکوری">کانکوری</option>
-                    <option value="کامپیوتر">کامپیوتر</option>
-                    <option value="ریاضی">ریاضی</option>
-                    <option value="انگلیسی">انگلیسی</option>
+                    <option value="">انتخاب صنف</option>     
+                    <% result.forEach(element => {  %>
+                        <option value="<%= element.nameOfClass %>"><%= element.nameOfClass %></option>
+                    <% }); %>
                 </select>
             </div>
             <div class="teachers">
                 استاد شاگرد:
                 <select name="teacherSearchStudents" >
                     <option value=""> انتخاب استاد</option>
-                    <option value="ادریس تاجی">ادریس تاجی</option>
-                    <option value="فقیر احمد جویا">فقیر احمد جویا</option>
-                    <option value="استاد شیرین">استاد شیرین</option>
-                    <option value="غلام رحمان">غلام رحمان</option>
+                   <% result.forEach(element => { %>
+                    <option value="<%= element.teacherNameOfClass %>"><%= element.teacherNameOfClass %></option>
+                    <% }); %>
                 </select>
             </div>
             <div class="teachers">
@@ -62,4 +60,6 @@
     
 
 </div>
+
+<%- include('tableOFStudents.ejs') %>
 
