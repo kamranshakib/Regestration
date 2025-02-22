@@ -298,26 +298,53 @@ app.get('/Class/:string',async (req,res)=>{
   
 })
 
-
-
+    
+    
  
 // salary of teacher 
-var money = 0;
-StudentDB.find({
-  time_student: "4 الی 5"
+
+// StudentDB.find({
+//   time_student: "4 الی 5"
  
-})
-.then((result)=>{
-  result.forEach(element => {
+// })
+// .then((result)=>{
+//   result.forEach(element => {
     
-     money= money+Number(element.payment_money);
-  });
-  console.log(money)
+      
+//   });
+//   console.log(money)
+// })
+// .catch((err)=>  console.log(err))
+
+        //   classes of information
+
+app.get("/showInformationOfClass/:id",(req,res)=>{
+  const id = req.params.id
+  console.log(id)
+  var money = 0;
+  classDB.find({
+    _id: `${id}`
+  }
+  )
+  .then((classSelect)=> {
+   classSelect.forEach(el=>{
+    StudentDB.find({
+      time_student: `${el.TimeOfClass}`,
+      teacher_name: `${el.teacherNameOfClass}`
+    })
+    .then((students)=> {
+      students.forEach(el=>{
+        money= money+Number(el.payment_money);
+      })
+      console.log(money)
+      res.render('informationOfClass',{students,money})
+    })
+   })
+  })
+  .catch((err)=> console.log(err))
+
 })
-.catch((err)=>  console.log(err))
-
-
-
+   
 
 
 
