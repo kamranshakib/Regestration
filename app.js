@@ -38,25 +38,6 @@ app.post("/searchStudents", (req, res) => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-// app.post("/searchStudents", (req, res) => {
-//   const { teacherSearchStudents, classesSearch, nameSearch } = req.body; // teacher_name:`${teacherSearchStudents}`,// class_student: `${classesSearch}
-//   console.log(nameSearch)
-//   StudentDB.find({ name_student: `${nameSearch}` })
-//     .then((result) => res.render("tableOFStudents", { students: result }))
-//     .catch((err) => console.log(err));
-
-// });
-
 app.get('/searchStudent',(req,res)=>{
   classDB.find()
   .then((result)=>{
@@ -108,27 +89,43 @@ app.post("/RegestrationStudent", upload.single("photo_student"), (req, res) => {
   res.redirect("/regestrationStudent");
 });
 
+          //  delete students
+
+app.get('/deleteStudents/:id',(req,res)=>{
+  const id = req.params.id;
+  StudentDB.findByIdAndDelete(id)
+  .then((err)=> res.redirect('/searchStudent'))
+  .catch((err)=> console.log(err))
+})
+
+          // edit students
+
+app.get('/editStudents/:id',(req,res)=>{
+  const id = req.params.id
+  StudentDB.find({
+    _id: `${id}`
+  })
+  .then((result)=>res.render('editStudents',{result}))
+  .catch((err)=> console.log(err))
+})
+
+app.post('/takeEditInfo',(req,res)=>{
+  const id = req.params.id
+  const edit = req.body
+  const name = req.body.name
+
+  StudentDB.findByIdAndUpdate(id)
+  .then((result)=>{
+    name_student :  `${name}`
+    console.log('okey')
+
+  })
+  .catch((err)=> console.log(err))
+  // res.redirect('/')
+})
 
 
 
-
-
-
-// app.get('/findStudents',(req,res)=>{
-//     res.render('showStudent')
-// })
-
-//            **                      **   پیدا کردن شاگردان از دیتابیس از طریق نام **
-// app.post('/findStudent',(req,res)=>{
-//     const nameStudent = req.body.search;
-//     StudentDB.find(
-//             {
-//                     name_student: `${nameStudent}`
-//                 }
-//             )
-//             .then((result)=>res.render('showStudent',{studentInfo:result}))
-//             .catch((err)=>console.log(err))
-// })
 
 //  teacher
 app.get("/regestrationTeacher", (req, res) => {

@@ -36,7 +36,10 @@
                     <td><%= element.moneyOfeveryStClass %></td>
                     <td>فعال</td>
                     <td><%=element.TimeOfClass%></td>
-                    <td><button style="border: none; background-color: green; color: white; padding: 5px 10px; border-radius: 5px;" type="submit"> <a href="showInformationOfClass/<%= element._id%>" style="text-decoration: none; color: rgb(255, 255, 255);">مشخصات بیشتر</a></button></td>                   
+                    <td><button style="border: none; background-color: green; color: white; padding: 5px 10px; border-radius: 5px;" type="submit"> <a href="showInformationOfClass/<%= element._id%>" style="text-decoration: none; color: rgb(255, 255, 255);">مشخصات بیشتر</a></button></td>     
+                    <td><a href=""><i class="fa fa-edit" style="color: green;"></i></a> 
+                    <a href="/deleteStudents/<%= element._id %>"><i style="transform: translateX(-10px); color: rgb(181, 0, 0);" class="fa fa-trash-can"></i></a>
+                </td>              
                 </tr>
             
             <%  }); %>

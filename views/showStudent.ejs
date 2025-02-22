@@ -128,8 +128,8 @@
                 </div>
             </div>
             <a href="/searchStudent"><button style="position: absolute; top: -20px ; right: -20px; font-size: 30px; color: red; border: none; background: transparent;">&Cross;</button></a>
-           <div class="btns"> <a  href="/searchStudent"><button id="delete">حذف </button></a>
-            <a  href=""><button id="edit"> ویرایش</button></a></div>
+           <div class="btns"> <a  href="/deleteStudents/<%= element._id %>"><button id="delete">حذف </button></a>
+            <a  href="/editStudents/<%= element._id %>"><button id="edit"> ویرایش</button></a></div>
         </div>
     </div>
     <% }); %>

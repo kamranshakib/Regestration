@@ -1,0 +1,141 @@
+
+<%- include('menu.ejs') %>
+    <style>
+        body {
+            background-color: #f1f1f1;
+            /* font-family: 'Tahoma', sans-serif; */
+            direction: rtl;
+            text-align: right;
+            font-family: 'dana';
+        }
+        .container {
+            max-width: 400px;
+            margin-top: 0px;
+            padding: 20px;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 20px;
+            display: flex;
+            /* align-items: center; */
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            border: 3px solid #027300;
+            object-fit: cover;
+            margin-right: 90px; /* فاصله بین عکس و متن */
+            margin-left: 0;
+        }
+        .info-container {
+            flex: 1;
+            margin-top: 10px;
+        }
+        .info {
+            width: 300px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.192);
+            justify-content: space-between;
+            /* margin-bottom: 10px; */
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding: 0px 10px;
+            
+        }
+        .info strong {
+            color: #008423;
+            min-width: 120px;
+        }
+        .info span {
+            color: #333;
+            /* font-weight: bold; */
+        }
+        
+        .btns button{
+            padding: 7px 25px;
+            border: none;
+            border-radius: 5px;
+        }
+        .btns #delete{
+            background-color: rgb(26, 153, 0);
+            color: whitesmoke;
+        }
+        .btns #edit{
+            border: 1px solid rgb(0, 154, 21);
+            background-color: transparent;
+            padding: 6px 23px;
+        }
+    </style>
+</head>
+<body>
+
+   <% result.forEach(element => { %>
+    
+  
+    <div class="container">
+        <!-- کارت اطلاعات شاگرد -->
+        <div class="card">
+            <form action="/takeEditInfo" method="post" >
+                <img src="<%= element.photo_student  %>" alt="تصویر شاگرد" class="profile-pic">
+                <div class="info-container">
+                    <div class="info">
+                        <strong>آیدی:</strong>
+                        <span><input type="text" name="ID" value="<%= element.id_number  %>"></span>
+                    </div>
+                    <div class="info">
+                        <strong>نام:</strong>
+                        <span><input type="text" name="name" value="<%= element.name_student  %>"></span>
+                    </div>
+                    <div class="info">
+                        <strong>نام خانوادگی:</strong>
+                        <span><input type="text" name="lastname" value="<%= element.LastName_student  %>"></span>
+                    </div>
+                    <div class="info">
+                        <strong>شماره تماس:</strong>
+                        <span><input type="text" name="number" value="<%= element.number_student  %>"></span>
+                    </div>
+                   
+                    <div class="info">
+                        <strong>رشته تحصیلی:</strong>
+                        <span><input type="text" name="subjectEDIT" value=" <%= element.subject  %>"></span>
+                    </div>
+                    <div class="info">
+                        <strong> صنف شاگرد:</strong>
+                        <span> <input type="text" name="Class" value="<%= element.class_student  %>"></span>
+                    </div>
+                    <div class="info">
+                        <strong> استاد شاگرد:</strong>
+                        <span> <input type="text" name="teacher" <%= element.teacher_name  %>></span>
+                    </div>
+                    <div class="info">
+                        <strong> تایم شاگرد:</strong>
+                        <span> <input type="text" name="time" value="<%= element.time_student  %>"></span>
+                    </div>
+                    <div class="info">
+                        <strong>فیس:</strong>
+                        <span><input type="text" name="fiss" value="<%= element.all_money  %>"></span>
+                    </div>
+                    <div class="info">
+                        <strong>مقدار پرداخت شده:</strong>
+                        <span><input type="text" name="payment_fiss" value="<%= element.payment_money  %>"></span>
+                    </div>
+                    <div class="info">
+                        <strong>مقدار باقی‌مانده:</strong>
+                        <span><input type="text" name="baqi_fiss" value="<%= element.remaining_money  %>"></span>
+                    </div>
+                </div>
+
+                <input type="submit" value="ثبت تغییرات">
+               
+            </form>
+           
+        </div>
+    </div>
+    <% }); %>
+
+</body>
+</html>
