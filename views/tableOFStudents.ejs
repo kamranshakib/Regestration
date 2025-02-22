@@ -11,6 +11,14 @@
         color: rgb(2, 150, 9);
     
      }
+     th{
+        text-align: center;
+     }
+     td{
+        text-align: center;
+        
+     }
+     
 </style>
 
 <div class="container" style="z-index: 5;background-color: rgba(240, 248, 255, 0.249); backdrop-filter: blur(2px);">
@@ -22,6 +30,9 @@
             <th>ولد</th>
             <th>تخلص</th>
             <th>صنف</th>
+            <th>فیس کل</th>
+            <th> پراخت شده</th>
+            <th> باقی مانده</th>
             <th>نتایج بیشتر</th>
         </tr>
     </thead>
@@ -32,6 +43,13 @@
                 <td><%= element.fatherName_student %></td>
                 <td><%= element.LastName_student %></td>
                 <td><%= element.class_student %> </td>
+                <td><%= element.all_money %> </td>
+                <td><%= element.payment_money %> </td>
+                 <% if(element.remaining_money>0){ %>
+                    <td style="background-color: yellow; border-radius: 5px; font-weight: bold;"><%= element.remaining_money %> </td>
+                <% } else{%>
+                    <td><%= element.remaining_money %> </td>
+                    <% } %>
                 <td ><a href="/showStudents/<%=element._id%>" style="border: none; background-color: green; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none;">مشخصات </a></td>
                   
                
@@ -41,4 +59,6 @@
         </tbody>
     </table>
 </div>
-    
+    <script>
+        
+    </script>

@@ -16,12 +16,6 @@ app.get("/", (req, res) => {
 
 //  نشان دادن صفحه ثبت نام شاگردان **
 
-// app.get("/searchStudent", (req, res) => {
-
-//   StudentDB.find().sort({createdAt:-1})
-//   .then((result) => res.render("tableOFStudents", { students: result }))
-//   .catch((err) => console.log(err));
-// }); 
 
 app.post("/searchStudents", (req, res) => {
   const { teacherSearchStudents, classesSearch, nameSearch } = req.body; // teacher_name:`${teacherSearchStudents}`,// class_student: `${classesSearch}
@@ -50,7 +44,7 @@ app.get('/searchStudent',(req,res)=>{
   .catch((err)=> console.log(err))
 })
 
- 
+
 app.get('/tableOFStudentss',(req,res)=>{
     const { teacherSearchStudents, classesSearch, nameSearch } = req.body; // teacher_name:`${teacherSearchStudents}`,// class_student: `${classesSearch}
 
@@ -109,25 +103,46 @@ app.get('/editStudents/:id',(req,res)=>{
   .catch((err)=> console.log(err))
 })
 
-app.post('/takeEditInfo',(req,res)=>{
+app.post('/takeEditInfo/:id',(req,res)=>{
   const id = req.params.id
   const edit = req.body
   const name = req.body.name
 
-  StudentDB.findByIdAndUpdate(id)
-  .then((result)=>{
-    name_student :  `${name}`
-    console.log('okey')
-
-  })
+  StudentDB.findByIdAndUpdate(id, 
+    {$set: {name_student : name}},
+    {new: true})
+    .then((result)=>{
+      console.log(result)
+      res.redirect('/')
+    })
   .catch((err)=> console.log(err))
   // res.redirect('/')
+})
+ 
+
+        // payment money of students
+app.get('/tableStudentsforPayment',(req,res)=>{
+  classDB.find()
+  .then((result)=>{
+    StudentDB.find()
+    .then((students)=>{
+          students.forEach((er) => console.log(er.remaining_money));
+        res.render("tableStudentsforPayment", { result, students });
+    })
+  })
+  .catch((err)=> console.log(err))
 })
 
 
 
 
-//  teacher
+
+
+
+
+
+
+                          //  teacher
 app.get("/regestrationTeacher", (req, res) => {
   classDB.find()
   .then((result)=> res.render('teacherRegestration',{result}))
@@ -247,22 +262,8 @@ app.post('/sssss',(req,res)=>{
   console.log(req.body)
   res.redirect('/')
 })
-            
-//   search classes 
 
-// app.post('/searchClass',(req,res)=>{
-//   let {classesSearch , teacherSearchStudents} = req.body;
-//   let query = {}
-//   if(classesSearch && classesSearch !=="") query.class_student = classesSearch;
-//   if(teacherSearchStudents && teacherSearchStudents !== "") query.teacher_name = teacherSearchStudents
 
-//   StudentDB.find(query)
-//   .then((result) => res.render('showClass',{result}))
-//   .catch((err)=> console.log(err))
-
-// })
-                      
-       
 
 app.get('/Class/:string',async (req,res)=>{
   try{
@@ -286,7 +287,7 @@ app.get('/Class/:string',async (req,res)=>{
     console.log(err)
   }
 
- 
+
   // StudentDB.find({
   //   class_student: `${clas}`
   // })
@@ -295,14 +296,11 @@ app.get('/Class/:string',async (req,res)=>{
   
 })
 
-    
-    
- 
 // salary of teacher 
 
 // StudentDB.find({
 //   time_student: "4 الی 5"
- 
+
 // })
 // .then((result)=>{
 //   result.forEach(element => {

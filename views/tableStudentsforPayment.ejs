@@ -1,0 +1,65 @@
+<%- include('menu.ejs') %>
+<style>
+     .container {
+            max-width: 900px;
+            background: #ffffff5a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            backdrop-filter: blur(5px);
+            
+        }
+        .listTop{
+            display: flex;
+            gap: 50px;
+            border-bottom: 2px solid black;
+            margin-bottom: 20px;
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+       
+</style>
+
+<div class="container">
+    
+        <form class="listTop" action="/searchStudents" method="post">
+            <div class="classes">
+                صنف شاگرد:
+                <select name="classesSearch" >
+                    <option value="">انتخاب صنف</option>     
+                    <% result.forEach(element => {  %>
+                        <option value="<%= element.nameOfClass %>"><%= element.nameOfClass %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="teachers">
+                استاد شاگرد:
+                <select name="teacherSearchStudents" >
+                    <option value=""> انتخاب استاد</option>
+                   <% result.forEach(element => { %>
+                    <option value="<%= element.teacherNameOfClass %>"><%= element.teacherNameOfClass %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="teachers">
+                نام شاگرد:
+               <input type="text" name="nameSearch">
+            </div>
+            <div class="submit">
+                <input type="submit" value="جستجو ">
+            </div>
+            
+        </div>
+
+        </form>
+       
+    <br><br>
+   
+    
+    
+
+</div>
+
+<%- include('tableOFStudents.ejs') %>
+
