@@ -1,25 +1,39 @@
 
 <%- include('menu.ejs') %>
     <style>
-        body {
+        .body1 {
             background-color: #f1f1f1;
             /* font-family: 'Tahoma', sans-serif; */
             direction: rtl;
             text-align: right;
             font-family: 'dana';
+            display: flex;
+            flex-wrap:wrap;
+            justify-content: left;
+            align-items: flex-start;
+            width: 88%;
+            position: absolute;
+            left: 0;
+            padding: 20px;
+            margin: 0;
+            box-sizing: border-box;
+            border: 20px solid white;
+        
         }
-        .container {
+        .container1 {
             max-width: 400px;
             margin-top: 0px;
-            padding: 20px;
+            padding: 10px;
+            display: flex;
+            
         }
         .card {
             border-radius: 15px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff;
-            padding: 20px;
+            background-color: #ffffff5d;
+            padding: 10px;
             display: flex;
-            /* align-items: center; */
+            backdrop-filter: blur(50px);
         }
         .profile-pic {
             width: 120px;
@@ -35,7 +49,7 @@
             margin-top: 10px;
         }
         .info {
-            width: 300px;
+            width: 250px;
             display: flex;
             align-items: center;
             border-bottom: 1px solid rgba(0, 0, 0, 0.192);
@@ -54,29 +68,14 @@
             color: #333;
             /* font-weight: bold; */
         }
-        
-        .btns button{
-            padding: 7px 25px;
-            border: none;
-            border-radius: 5px;
-        }
-        .btns #delete{
-            background-color: rgb(26, 153, 0);
-            color: whitesmoke;
-        }
-        .btns #edit{
-            border: 1px solid rgb(0, 154, 21);
-            background-color: transparent;
-            padding: 6px 23px;
-        }
     </style>
 </head>
-<body>
+<body class="body1">
 
-   <% result.forEach(element => { %>
+   <% students.forEach(element => { %>
     
   
-    <div class="container">
+    <div class="container1" >
         <!-- کارت اطلاعات شاگرد -->
         <div class="card">
             <img src="<%= element.photo_student  %>" alt="تصویر شاگرد" class="profile-pic">
@@ -127,12 +126,12 @@
                     <span><%= element.remaining_money  %></span>
                 </div>
             </div>
-            <a href="/searchStudent"><button style="position: absolute; top: -20px ; right: -20px; font-size: 30px; color: red; border: none; background: transparent;">&Cross;</button></a>
-           <div class="btns"> <a  href="/searchStudent"><button id="delete">حذف </button></a>
-            <a  href=""><button id="edit"> ویرایش</button></a></div>
+            <!-- <a href="/searchStudent"><button style="position: absolute; top: -20px ; right: -20px; font-size: 30px; color: red; border: none; background: transparent;">&Cross;</button></a> -->
         </div>
     </div>
     <% }); %>
-
+    <div class="money" style="position: absolute; right: 200px;">
+         <p>پرداخت شده های صنف</p><h2><%= money %> افغانی</h2></span>
+    </div>
 </body>
 </html>
