@@ -1,0 +1,76 @@
+<%- include('menu.ejs') %>
+
+
+
+
+
+<style>
+    .table tr:nth-child(even){
+     background-color: rgba(181, 180, 180, 0.193);
+    
+     
+    
+      }
+      .table tr:nth-child(even):hover{
+         color: rgb(2, 150, 9);
+     
+      }
+      input{
+        padding: 0px 5px;
+      }
+      #btn{
+        padding: 7px 15px ;
+        border: none;
+        background-color: rgba(5, 151, 3, 0.626);
+        color: white;
+        border-radius: 5px;
+        box-shadow: inset 5px 2px 25px rgba(0, 0, 0, 0.511);
+        position: absolute;
+        left: 0;
+      }
+ </style>
+ 
+ <div class="container" style="z-index: 5;background-color: rgba(240, 248, 255, 0.249); backdrop-filter: blur(2px); width: 800px;">
+     
+ <table  class="table table-hover" >
+     <thead>
+         <tr style="color: rgb(0, 0, 0);">
+            <br> 
+            <th>صنف</th>
+             <th>استاد</th>
+             <th>فیس</th>
+             <th>وضعیت</th>
+             <th>تایم</th>
+         </tr>
+     </thead>
+     <tbody>
+       
+        <% result.forEach(element => { %>
+            <form action="/editClass/<%= element._id %>" method="post">
+                    <tr style="padding: 10px;">
+                    <td><input type="text" name="name" value="<%= element.nameOfClass %>"></td>
+                    <td><input type="text" name="teachername" value="<%= element.teacherNameOfClass %>"></td>
+                    <td><input type="text" name="money" value="<%= element.moneyOfeveryStClass %>"></td>
+                    <td><select name="sit" ><option value="فعال">فعال</option><option value="غیرفعال">غیرفعال</option></select></td>
+                    <td><input type="text" name="time" value="<%=element.TimeOfClass%>"></td>
+                </tr>
+                
+            
+            <%  }); %>
+               
+             
+                
+                
+         </tbody>
+     </table>
+   
+     <button id="btn">ثبت تغییرات</button>
+            </form>
+            
+             
+ </div>
+    
+
+<body>
+
+

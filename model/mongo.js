@@ -188,6 +188,10 @@ const teacherInfo = new Schema({
     },
     FinishDateOfClass : {
       type: String
+    },
+    situ:{
+      type:String
+
     }
    
   },{timestamps:true})

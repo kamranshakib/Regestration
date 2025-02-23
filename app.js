@@ -99,26 +99,39 @@ app.get("/editStudents/:id", (req, res) => {
 });
 
 app.post("/takeEditInfo/:id", (req, res) => {
-  const id = req.params.id; const name = req.body.name;
-  const lastname = req.body.lastname;const ID = req.body.ID;
-  const number = req.body.number;const subjectEDIT = req.body.subjectEDIT;
-  const Class = req.body.Class;const teacher = req.body.teacher;
-  const time = req.body.time;const fiss = req.body.fiss;
-  const payment_fiss = req.body.payment_fiss;const baqi_fiss = req.body.baqi_fiss;
+  const id = req.params.id;
+  const name = req.body.name;
+  const lastname = req.body.lastname;
+  const ID = req.body.ID;
+  const number = req.body.number;
+  const subjectEDIT = req.body.subjectEDIT;
+  const Class = req.body.Class;
+  const teacher = req.body.teacher;
+  const time = req.body.time;
+  const fiss = req.body.fiss;
+  const payment_fiss = req.body.payment_fiss;
+  const baqi_fiss = req.body.baqi_fiss;
 
   StudentDB.findByIdAndUpdate(
     id,
     {
       $set: {
-        name_student: name,LastName_student: lastname,id_number: ID,number_student: number,
-        subject: subjectEDIT,class_student: Class,teacher_name: teacher,time_student: time,
-        all_money: fiss,payment_money: payment_fiss,remaining_money: baqi_fiss,
+        name_student: name,
+        LastName_student: lastname,
+        id_number: ID,
+        number_student: number,
+        subject: subjectEDIT,
+        class_student: Class,
+        teacher_name: teacher,
+        time_student: time,
+        all_money: fiss,
+        payment_money: payment_fiss,
+        remaining_money: baqi_fiss,
       },
     },
     { new: true }
   )
     .then((result) => {
-      console.log(result);
       res.redirect("/");
     })
     .catch((err) => console.log(err));
@@ -190,8 +203,6 @@ app.post("/createClass", (req, res) => {
   res.redirect("/createClass");
 });
 
-
-
 app.get("/runForClass", (req, res) => {
   classDB
     .find()
@@ -218,11 +229,8 @@ app.post("/searchClass", (req, res) => {
 
 app.get("/showClass", (rea, res) => {
   res.render("showClass");
-
-  // StudentDB.find()
-  // .then((result)=> res.render('showClass',{result}) )
-  // .catch((err)=> console.log(err))
 });
+
 var conter = 0;
 StudentDB.find({
   class_student: "وب سایت",
@@ -262,8 +270,6 @@ app.get("/Class/:string", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-
- 
 });
 
 app.get("/showInformationOfClass/:id", (req, res) => {
@@ -291,29 +297,56 @@ app.get("/showInformationOfClass/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-          //  delete class
+//  delete class
 
-app.get("/deleteClass/:id",(req,res)=>{
-  let id = req.params.id
+app.get("/deleteClass/:id", (req, res) => {
+  let id = req.params.id;
   classDB
     .findByIdAndDelete(id)
     .then(() => res.redirect("/runForClass"))
     .catch((err) => console.log(err));
 });
+// edit class
+app.get("/editClass/:id", (req, res) => {
+  let id = req.params.id;
+  classDB
+    .find({ _id: `${id}` })
+    .then((result) => res.render("editClass", { result }))
+    .catch((err) => console.log(err));
+});
 
-
-
-
-
-
-
-
-
+//  post edit class
+app.post("/editClass/:id", (req, res) => {
+  let id = req.params.id;
+  const nameClass = req.body.name;
+  const teachrename = req.body.teachername;
+  const money = req.body.money;
+  const sit = req.body.sit;
+  const time = req.body.time;
+  classDB
+    .findByIdAndUpdate(
+       id,
+    {
+      $set: {
+         nameOfClass: nameClass,
+          teacherNameOfClass: teachrename,
+          TimeOfClass: time,
+          moneyOfeveryStClass: money,
+          situ: sit,
+      },
+    },
+    { new: true }
+  )
+    .then((result) => {
+      res.redirect("/");
+    })
+    .catch((err) => console.log(err));
+});
 
 // salary part
 app.get("/salaryPart", (req, res) => {
   res.render("classes");
-}); 
+});
 var message = "";
 app.get("/paymentMoneySt", (req, res) => {
   classDB
@@ -354,5 +387,3 @@ app.post("/PaymentMoneySt", (req, res) => {
 app.listen(3000, () => {
   console.log("Server on port 3000");
 });
-
-
