@@ -102,20 +102,46 @@ app.get('/editStudents/:id',(req,res)=>{
   .then((result)=>res.render('editStudents',{result}))
   .catch((err)=> console.log(err))
 })
-
+    
 app.post('/takeEditInfo/:id',(req,res)=>{
   const id = req.params.id
-  const edit = req.body
   const name = req.body.name
+  const lastname = req.body.lastname;
+  const ID = req.body.ID;
+  const number = req.body.number;
+  const subjectEDIT = req.body.subjectEDIT;
+  const Class = req.body.Class;
+  const teacher = req.body.teacher;
+  const time = req.body.time;
+  const fiss = req.body.fiss;
+  const payment_fiss = req.body.payment_fiss;
+  const baqi_fiss = req.body.baqi_fiss;
 
-  StudentDB.findByIdAndUpdate(id, 
-    {$set: {name_student : name}},
-    {new: true})
-    .then((result)=>{
-      console.log(result)
-      res.redirect('/')
+    
+  StudentDB.findByIdAndUpdate(
+    id,
+    {
+      $set: {
+        name_student: name,
+        LastName_student: lastname,
+        id_number: ID,
+        number_student: number,
+        subject: subjectEDIT,
+        class_student: Class,
+        teacher_name: teacher,
+        time_student: time,
+        all_money: fiss,
+        payment_money: payment_fiss,
+        remaining_money:baqi_fiss,
+      },
+    },
+    { new: true }
+  )
+    .then((result) => {
+      console.log(result);
+      res.redirect("/");
     })
-  .catch((err)=> console.log(err))
+    .catch((err) => console.log(err));
   // res.redirect('/')
 })
  
