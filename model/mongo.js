@@ -67,8 +67,8 @@ const studentSchema = new Schema(
       required: false,
     },
     date_student: {
-      type: String,
-      required: false,
+      type: Date,
+      default: Date.now,
     },
     time_student: {
       type: String,

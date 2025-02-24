@@ -44,9 +44,14 @@
                 <td><%= element.LastName_student %></td>
                 <td><%= element.class_student %> </td>
                 <td><%= element.all_money %> </td>
-                <td><%= element.payment_money %> </td>
+                <% if(element.payment_money == "0"){ %>
+                    <td style="background-color: rgba(255, 0, 0, 0.418); border-radius: 5px; box-shadow: inset 2px 2px 25px rgb(255, 69, 69);"><%= element.payment_money %> </td>
+                    <% }else{ %>
+                            <td><%= element.payment_money %> </td>
+                        <% } %>
+                
                  <% if(element.remaining_money>0){ %>
-                    <td style="background-color: yellow; border-radius: 5px; font-weight: bold;"><%= element.remaining_money %> </td>
+                    <td style="background-color: rgba(255, 255, 0, 0.491); border-radius: 5px; font-weight: bold;"><%= element.remaining_money %> </td>
                 <% } else{%>
                     <td><%= element.remaining_money %> </td>
                     <% } %>

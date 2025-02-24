@@ -113,7 +113,7 @@ app.post("/takeEditInfo/:id", (req, res) => {
   const baqi_fiss = req.body.baqi_fiss;
 
   StudentDB.findByIdAndUpdate(
-    id,
+    id,  
     {
       $set: {
         name_student: name,
@@ -127,6 +127,7 @@ app.post("/takeEditInfo/:id", (req, res) => {
         all_money: fiss,
         payment_money: payment_fiss,
         remaining_money: baqi_fiss,
+        date_student:new Date()
       },
     },
     { new: true }
@@ -137,17 +138,67 @@ app.post("/takeEditInfo/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-// payment money of students
-app.get("/tableStudentsforPayment", (req, res) => {
-  classDB
-    .find()
-    .then((result) => {
-      StudentDB.find().then((students) => {
-        res.render("tableStudentsforPayment", { result, students });
-      });
-    })
-    .catch((err) => console.log(err));
+// // payment money of students
+
+// app.get("/tableStudentsforPayment", async (req, res) => {
+//   try {
+//     const oneMonthAgo = new Date();
+//     oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1); // محاسبه تاریخ یک ماه قبل
+
+//     // آپدیت دانش‌آموزانی که یک ماه از ثبت‌نامشان گذشته و مقدار payment_money آن‌ها را صفر کن
+//     await StudentDB.updateMany(
+//       { registrationDate: { $lte: oneMonthAgo } }, // پیدا کردن دانش‌آموزانی که یک ماه از ثبت‌نامشان گذشته
+//       { $set: { payment_money: 0 } } // صفر کردن مقدار payment_money
+//     );
+
+//     // دریافت همه دانش‌آموزان بعد از آپدیت
+//     const students = await StudentDB.find();
+
+//     // دریافت اطلاعات کلاس‌ها
+//     const result = await classDB.find();
+
+//     // ارسال داده‌ها به صفحه
+//     res.render("tableStudentsforPayment", { result, students });
+//   } catch (err) {
+//     console.log("خطا در دریافت داده‌ها:", err);
+//     res.status(500).send("خطایی رخ داده است");
+//   }
+// });
+
+app.get("/tableStudentsforPayment", async (req, res) => {
+  try {
+    const oneMinuteAgo = new Date();
+    oneMinuteAgo.setMinutes(oneMinuteAgo.getMinutes() - 1);
+    await StudentDB.updateMany(
+      {
+        date_student: { $lte: oneMinuteAgo },
+      },    
+      { $set: { payment_money: 0 } }  
+    );
+    const students = await StudentDB.find();
+    const result = await classDB.find();
+    res.render("tableStudentsforPayment", { result, students });
+  } catch (err) {
+    console.log("خطا در دریافت داده‌ها:", err);
+    res.status(500).send("خطایی رخ داده است");
+  }
 });
+
+// app.get("/tableStudentsforPayment", (req, res) => {
+  
+//   classDB
+//     .find()
+//     .then((result) => {
+//       StudentDB.find().then((students) => {
+//         res.render("tableStudentsforPayment", { result, students });
+//       });
+//     })
+//     .catch((err) => console.log(err));
+// });
+
+
+
+
 
 //  teacher
 app.get("/regestrationTeacher", (req, res) => {
