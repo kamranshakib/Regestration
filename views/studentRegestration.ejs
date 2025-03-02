@@ -31,17 +31,21 @@
             justify-content: center;
             border-radius: 10px;
             width: 40px;
+            height: 40px;
+            border: none;
             z-index: 5;
+            transform: translateX(-10px);
         }
         .input-group .form-control {
-            border-radius: 0px;
-            padding-left: 35px;
+            padding-left: 0px;
         }
         .form-control{
-            transform: translateX(5px);
+            transform: translateX(10px);
+            border-radius: 10px;
         }
         .input-group {
             position: relative;
+            
         }
         button {
             padding: 10px 20px;
@@ -90,6 +94,14 @@
             margin-top: 30px;
            
         }
+        .footer button{
+            background-color: rgba(0, 162, 255, 0.104);
+        }
+        .footer button:hover{
+            background-color: rgba(0, 255, 72, 0.252);
+        }
+        
+       
     </style>
 </head>
 <body class="p-4">
@@ -145,22 +157,22 @@
                         <input type="date" class="form-control" name="date_student" placeholder="تاریخ تولد" >
                     </div> -->
 
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
-                        <select name="class_student" >
-                            <option value="">انتخاب صنف</option>     
+                    <div class="input-group mb-3" style="transform: translateX(-10px);">
+                        <!-- <span class="input-group-text"><i class="fas fa-user-alt"></i></span> -->
+                        <select name="class_student" style="  border: none; background-color: rgba(0, 255, 255, 0.103); border-radius: 5px; padding: 5px;" >
+                            <option style="background-color: #009105; color: white;" value="">انتخاب صنف</option>     
                             <% result.forEach(element => {  %>
-                                <option value="<%= element.nameOfClass %>"><%= element.nameOfClass %></option>
+                                <option style="background-color: #009105; color: white; " value="<%= element.nameOfClass %>"><%= element.nameOfClass %></option>
                             <% }); %>
                         </select>
                       
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
-                        <select name="teacher_name" >
-                            <option value="">انتخاب استاد</option>     
+                    <div class="input-group mb-3"  style="transform: translateX(-10px);">
+                        <!-- <span class="input-group-text"><i class="fas fa-user-alt"></i></span> -->
+                        <select name="teacher_name" style="border: none; background-color: rgba(0, 255, 255, 0.103); border-radius: 5px; padding: 5px;">
+                            <option style="background-color: #009105; color: white;" value="">انتخاب استاد</option>     
                             <% result.forEach(element => {  %>
-                                <option value="<%= element.teacherNameOfClass %>"><%= element.teacherNameOfClass %></option>
+                                <option style="background-color: #009105; color: white; " value="<%= element.teacherNameOfClass %>"><%= element.teacherNameOfClass %></option>
                             <% }); %>
                         </select>
                     </div>
@@ -211,14 +223,14 @@
 
             <!-- بارگذاری عکس -->
             <div class="image-upload" style="margin-top: 10px;">
-                <label style="background-color: rgba(255, 0, 0, 0.103); box-shadow: none;"  for="file-upload" ><span style="color: red;" class="fa fa-cloud-arrow-up"></span><span style="margin-right: 20px; color: rgb(0, 0, 0);">بارگذاری عکس</span></label>
+                <label style="background-color: rgba(0, 255, 255, 0.103); box-shadow: none;"  for="file-upload" ><span style="color: rgb(0, 208, 255);" class="fa fa-cloud-arrow-up"></span><span style="margin-right: 20px; color: rgb(0, 0, 0);">بارگذاری عکس</span></label>
                 <input  name="photo_student" type="file" id="file-upload" accept="image/*" required/>
                 <div id="image-preview"> </div>
             </div>
            
             
             <div class="footer">
-                <button style="width: 100%;" type="submit" class="btn btn-light">ثبت‌نام</button>
+                <button id="sub" style="width: 100%;" type="submit" class="btn " >ثبت‌نام</button>
             </div>
         </form>
     </div>

@@ -12,12 +12,10 @@ const upload = multer({ dest: "public/image/" });
 app.get("/", (req, res) => {
   res.render("menu");
 });
-//   برای استفاده از برنامه  body parser , ejs , mongoose , express , multer را نصب کنید
 
-//  نشان دادن صفحه ثبت نام شاگردان **
 
 app.post("/searchStudents", (req, res) => {
-  const { teacherSearchStudents, classesSearch, nameSearch } = req.body; // teacher_name:`${teacherSearchStudents}`,// class_student: `${classesSearch}
+  const { teacherSearchStudents, classesSearch, nameSearch } = req.body; 
   let query = {};
   if (nameSearch) query.name_student = nameSearch;
   if (classesSearch && classesSearch !== "")
@@ -43,7 +41,7 @@ app.get("/searchStudent", (req, res) => {
 });
 
 app.get("/tableOFStudentss", (req, res) => {
-  const { teacherSearchStudents, classesSearch, nameSearch } = req.body; // teacher_name:`${teacherSearchStudents}`,// class_student: `${classesSearch}
+  const { teacherSearchStudents, classesSearch, nameSearch } = req.body;
 
   StudentDB.find({ class_student: `${classesSearch}` })
     .then((result) => res.render("tableOFStudents", { students: result }))
@@ -65,6 +63,7 @@ app.get("/showStudents/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+                            
 //       **  ثبت نام شاگردان در دیتایس*****
 app.post("/RegestrationStudent", upload.single("photo_student"), (req, res) => {
   const studentInfo = new StudentDB(req.body);
@@ -78,7 +77,7 @@ app.post("/RegestrationStudent", upload.single("photo_student"), (req, res) => {
   res.redirect("/regestrationStudent");
 });
 
-//  delete students
+                                          //  delete students
 
 app.get("/deleteStudents/:id", (req, res) => {
   const id = req.params.id;
@@ -87,7 +86,7 @@ app.get("/deleteStudents/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-// edit students
+                                          // edit students
 
 app.get("/editStudents/:id", (req, res) => {
   const id = req.params.id;
@@ -113,7 +112,7 @@ app.post("/takeEditInfo/:id", (req, res) => {
   const baqi_fiss = req.body.baqi_fiss;
 
   StudentDB.findByIdAndUpdate(
-    id,  
+    id,
     {
       $set: {
         name_student: name,
@@ -127,7 +126,7 @@ app.post("/takeEditInfo/:id", (req, res) => {
         all_money: fiss,
         payment_money: payment_fiss,
         remaining_money: baqi_fiss,
-        date_student:new Date()
+        date_student: new Date(),
       },
     },
     { new: true }
@@ -137,6 +136,7 @@ app.post("/takeEditInfo/:id", (req, res) => {
     })
     .catch((err) => console.log(err));
 });
+
 
 // // payment money of students
 
@@ -172,8 +172,8 @@ app.get("/tableStudentsforPayment", async (req, res) => {
     await StudentDB.updateMany(
       {
         date_student: { $lte: oneMinuteAgo },
-      },    
-      { $set: { payment_money: 0 } }  
+      },
+      { $set: { payment_money: 0 } }
     );
     const students = await StudentDB.find();
     const result = await classDB.find();
@@ -183,22 +183,6 @@ app.get("/tableStudentsforPayment", async (req, res) => {
     res.status(500).send("خطایی رخ داده است");
   }
 });
-
-// app.get("/tableStudentsforPayment", (req, res) => {
-  
-//   classDB
-//     .find()
-//     .then((result) => {
-//       StudentDB.find().then((students) => {
-//         res.render("tableStudentsforPayment", { result, students });
-//       });
-//     })
-//     .catch((err) => console.log(err));
-// });
-
-
-
-
 
 //  teacher
 app.get("/regestrationTeacher", (req, res) => {
@@ -348,7 +332,7 @@ app.get("/showInformationOfClass/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-//  delete class
+                                        //  delete class
 
 app.get("/deleteClass/:id", (req, res) => {
   let id = req.params.id;
@@ -376,25 +360,25 @@ app.post("/editClass/:id", (req, res) => {
   const time = req.body.time;
   classDB
     .findByIdAndUpdate(
-       id,
-    {
-      $set: {
-         nameOfClass: nameClass,
+      id,
+      {
+        $set: {
+          nameOfClass: nameClass,
           teacherNameOfClass: teachrename,
           TimeOfClass: time,
           moneyOfeveryStClass: money,
           situ: sit,
+        },
       },
-    },
-    { new: true }
-  )
+      { new: true }
+    )
     .then((result) => {
       res.redirect("/");
     })
     .catch((err) => console.log(err));
 });
 
-// salary part
+                                            // salary part
 app.get("/salaryPart", (req, res) => {
   res.render("classes");
 });
@@ -434,6 +418,13 @@ app.post("/PaymentMoneySt", (req, res) => {
     })
     .catch((err) => console.log(err));
 });
+
+
+
+
+
+
+
 
 app.listen(3000, () => {
   console.log("Server on port 3000");

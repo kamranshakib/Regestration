@@ -23,7 +23,8 @@
         .form-label {
             font-weight: 500;
             font-size: 14px;
-            color: #333;
+            color: #333333;
+            
         }
         input, select, button {
             border-radius: 8px;
@@ -180,7 +181,7 @@
 
             <!-- بارگذاری عکس -->
             <div class="image-upload  mt-3">
-                <label for="file-upload">بارگذاری عکس</label>
+                <label style="background-color: rgba(0, 208, 255, 0.103); box-shadow: none;" for="file-upload"> <span style="color: rgb(0, 183, 255);" class="fa fa-cloud-arrow-up"></span><span style="margin-right: 20px; color: rgb(0, 0, 0);">بارگذاری عکس</span></label>
                 <input name="photo_teacher" type="file" id="file-upload" accept="image/*" required />
                 <div id="image-preview"></div>
             </div>
