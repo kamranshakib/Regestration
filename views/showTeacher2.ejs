@@ -19,6 +19,7 @@
             background-color: #ffffff;
             padding: 20px;
             display: flex;
+            border-top: 30px solid rgb(66, 80, 70);
             /* align-items: center; */
         }
         .profile-pic {
@@ -54,6 +55,20 @@
             color: #333;
             /* font-weight: bold; */
         }
+          .btns button{
+            padding: 7px 25px;
+            border: none;
+            border-radius: 5px;
+        }
+        .btns #delete{
+            background-color: rgb(26, 153, 0);
+            color: whitesmoke;
+        }
+        .btns #edit{
+            border: 1px solid rgb(0, 154, 21);
+            background-color: transparent;
+            padding: 6px 23px;
+        }
     </style>
 </head>
 <body>
@@ -61,7 +76,7 @@
    <% result1.forEach(element => { %>
     <div class="container" style="position: relative;">
         <!-- کارت اطلاعات شاگرد -->
-        <div class="card">
+        <div class="card" >
             <img src="<%= element.photo_teacher  %>" alt="تصویر شاگرد" class="profile-pic">
             <div class="info-container">
                 
@@ -97,8 +112,10 @@
                 
                 
             </div>
+             <div class="btns"> <a  href="/deleteTeacher/<%= element._id %>"><button id="delete">حذف </button></a>
+            <a  href="/editTeacher/<%= element._id %>"><button id="edit"> ویرایش</button></a></div>
         </div>
-        <a href="/showTeacher"><button style="position: absolute; top: -10px ; right: 25px; font-size: 30px; color: red; border: none; background: transparent;">&Cross;</button></a>
+        <a href="/showTeacher"><button style="position: absolute; top: 16px ; right: 30px; font-size: 30px; color: rgb(255, 255, 255); border: none; background: transparent;">&Cross;</button></a>
     </div>
     <% }); %>
 

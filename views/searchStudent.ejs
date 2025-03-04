@@ -8,6 +8,9 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             position: relative;
             backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 0, 0, 0.391);
+            
+            
             
         }
         .listTop{
@@ -18,6 +21,24 @@
             padding-top: 20px;
             padding-bottom: 10px;
         }
+         .select{
+            border: none;
+            font-weight: bold;
+            outline: none;
+        }
+        .searchName input{
+            border: none;
+            border-bottom: 2px dotted black;
+            outline: none;
+        }
+        .submit input{
+            background-color: rgb(0, 145, 19);
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            color: white;
+        }
+       
        
 </style>
 
@@ -26,7 +47,7 @@
         <form class="listTop" action="/searchStudents" method="post">
             <div class="classes">
                 صنف شاگرد:
-                <select name="classesSearch" >
+                <select name="classesSearch" class="select" >
                     <option value="">انتخاب صنف</option>     
                     <% result.forEach(element => {  %>
                         <option value="<%= element.nameOfClass %>"><%= element.nameOfClass %></option>
@@ -35,14 +56,14 @@
             </div>
             <div class="teachers">
                 استاد شاگرد:
-                <select name="teacherSearchStudents" >
+                <select name="teacherSearchStudents" class="select">
                     <option value=""> انتخاب استاد</option>
                    <% result.forEach(element => { %>
                     <option value="<%= element.teacherNameOfClass %>"><%= element.teacherNameOfClass %></option>
                     <% }); %>
                 </select>
             </div>
-            <div class="teachers">
+            <div class="searchName">
                 نام شاگرد:
                <input type="text" name="nameSearch">
             </div>

@@ -17,9 +17,9 @@
       }
  </style>
  
- <div class="container" style="z-index: 5;margin-top: 10px; background-color:  rgba(240, 248, 255, 0.249); backdrop-filter: blur(2px); width: 800px;">
+ <div class="container" style="border-top: 30px solid rgba(0, 0, 0, 0.524); z-index: 5;margin-top: 10px; background-color:  rgba(240, 248, 255, 0.249); backdrop-filter: blur(2px); width: 800px; border-right:1px solid rgba(0, 0, 0, 0.418) ;  border-left:1px solid rgba(0, 0, 0, 0.418) ;  border-bottom:1px solid rgba(0, 0, 0, 0.418) ;">
      
- <table  class="table table-hover" >
+ <table  class="table table-hover"  >
      <thead>
          <tr style="color: rgb(0, 0, 0);">
              <th>صنف</th>
@@ -37,7 +37,7 @@
                     <td><%= element.teacherNameOfClass %></td>
                     <td><%= element.moneyOfeveryStClass %></td>
                     <td><%= element.TimeOfClass %> </td>
-                    <td><a href="/">مشخصات صنف</a></td>
+                    <td><a href="showInformationOfClass/<%= element._id%>">مشخصات صنف</a></td>
                    
                 </tr>
            
@@ -48,7 +48,7 @@
                 
          </tbody>
      </table>
-     <a href="/runForClass"><button style="position: absolute; top: -20px ; right: -10px; font-size: 30px; color: red; border: none; background: transparent;">&Cross;</button></a>
+     <a href="/runForClass"><button style="position: absolute; top: -32px ; right: 10px; font-size: 30px; color: rgb(255, 255, 255); border: none; background: transparent;">&Cross;</button></a>
  </div>
     
  

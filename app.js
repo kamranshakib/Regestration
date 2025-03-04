@@ -132,7 +132,7 @@ app.post("/takeEditInfo/:id", (req, res) => {
     { new: true }
   )
     .then((result) => {
-      res.redirect("/");
+      res.redirect("/searchStudent");
     })
     .catch((err) => console.log(err));
 });
@@ -184,7 +184,10 @@ app.get("/tableStudentsforPayment", async (req, res) => {
   }
 });
 
-//  teacher
+
+
+
+              //  teacher
 app.get("/regestrationTeacher", (req, res) => {
   classDB
     .find()

@@ -24,10 +24,10 @@ body {
 }
 
     ::-webkit-scrollbar{
-        width: 20px;
+        width: 10px;
     }
     ::-webkit-scrollbar-track{
-        background-color: #ffffff;
+        background-color: #0e7d2621;
     }
     ::-webkit-slider-thumb{
         background-color: #ff00e1;
@@ -50,9 +50,6 @@ body {
     font-size: 16px;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
-    /* margin-right: 20px; */
-    /* padding: 12px; */
     border-radius: 5px;
     padding-right: 30px;
     padding-top: 15px;

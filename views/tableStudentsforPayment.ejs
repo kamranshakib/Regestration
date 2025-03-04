@@ -18,6 +18,23 @@
             padding-top: 20px;
             padding-bottom: 10px;
         }
+        .select{
+            border: none;
+            font-weight: bold;
+            outline: none;
+        }
+        .searchName input{
+            border: none;
+            border-bottom: 2px dotted black;
+            outline: none;
+        }
+        .submit input{
+            background-color: rgb(0, 145, 19);
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            color: white;
+        }
        
 </style>
 
@@ -26,8 +43,8 @@
         <form class="listTop" action="/searchStudents" method="post">
             <div class="classes">
                 صنف شاگرد:
-                <select name="classesSearch" >
-                    <option value="">انتخاب صنف</option>     
+                <select name="classesSearch" class="select" >
+                    <option class="select" value="">انتخاب صنف</option>     
                     <% result.forEach(element => {  %>
                         <option value="<%= element.nameOfClass %>"><%= element.nameOfClass %></option>
                     <% }); %>
@@ -35,14 +52,14 @@
             </div>
             <div class="teachers">
                 استاد شاگرد:
-                <select name="teacherSearchStudents" >
-                    <option value=""> انتخاب استاد</option>
+                <select name="teacherSearchStudents"  class="select">
+                    <option value="" class="select"> انتخاب استاد</option>
                    <% result.forEach(element => { %>
                     <option value="<%= element.teacherNameOfClass %>"><%= element.teacherNameOfClass %></option>
                     <% }); %>
                 </select>
             </div>
-            <div class="teachers">
+            <div class="searchName">
                 نام شاگرد:
                <input type="text" name="nameSearch">
             </div>

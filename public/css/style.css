@@ -4,7 +4,7 @@
     box-sizing: border-box;
     /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     font-family: 'dana';
-}
+   
 body{
     direction: rtl;
     padding: 0 100px;
@@ -12,10 +12,10 @@ body{
     display: flex;
     justify-content: center;
     overflow: hidden;
+  
     
 }
 .form_student{
-    
     margin-top: 60px;
     width: 800px;
     height: 90vh;
