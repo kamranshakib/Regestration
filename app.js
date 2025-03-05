@@ -28,7 +28,7 @@ app.post("/searchStudents", (req, res) => {
     .then((result) => res.render("showStudents2", { students: result }))
     .catch((err) => console.log(err));
 });
-
+  
 app.get("/searchStudent", (req, res) => {
   classDB
     .find()
