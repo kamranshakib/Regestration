@@ -10,10 +10,10 @@ app.use(express.static("public"));
 const upload = multer({ dest: "public/image/" });
 
 app.get("/", (req, res) => {
-  res.render("menu");
+  res.redirect("searchStudent");
 });
-
-
+     
+   
 app.post("/searchStudents", (req, res) => {
   const { teacherSearchStudents, classesSearch, nameSearch } = req.body; 
   let query = {};
