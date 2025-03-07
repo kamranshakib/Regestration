@@ -22,6 +22,8 @@ This project is an **Academy Management System** designed to manage courses, tea
 - **Database:** MongoDB  
 - **Frontend:** HTML, CSS, jQuery
 
+- [مشاهده ویدیو در یوتیوب](https://youtu.be/H5lhd-XlU4U)
+
 
 
 
