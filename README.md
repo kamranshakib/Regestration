@@ -21,6 +21,7 @@ This project is an **Academy Management System** designed to manage courses, tea
 - **Backend:** Node.js, Express.js  
 - **Database:** MongoDB  
 - **Frontend:** HTML, CSS, jQuery
+- [Watch the video on YouTube](https://youtu.be/H5lhd-XlU4U)
 
 - [مشاهده ویدیو در یوتیوب](https://youtu.be/H5lhd-XlU4U)
 
