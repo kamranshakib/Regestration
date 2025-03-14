@@ -1,0 +1,263 @@
+<%- include('menu.ejs')  %>
+    <style>
+        body {
+            background-color: #f1f4f8;
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            max-width: 800px; /* کاهش عرض فرم */
+            background: #ffffff5a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+        h2 {
+            color: #000000;
+            text-align: center;
+            font-size: 28px; /* کاهش اندازه عنوان */
+            margin-bottom: 30px;
+        }
+        .form-label {
+            font-weight: 500;
+            font-size: 14px;
+            color: #333333;
+            
+        }
+        input, select, button {
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 5px;
+            width: 100%;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        input:focus, select:focus, button:focus {
+            border-color: #4a90e2;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+        .form-row .col-3 {
+            flex: 1;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .image-upload input[type="file"] {
+            display: none;
+        }
+        .image-upload label {
+            padding: 10px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgba(12, 241, 111, 0.193);
+            cursor: pointer;
+        }
+        .image-upload img {
+            max-width: 100px;
+            margin-top: 10px;
+            position: absolute;
+            left: 90px ;
+            bottom: 100px; 
+        }
+        .input-group .input-group-text {
+            background-color: #008216;
+            color: white;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .input-group .form-control {
+            padding-left: 10px;
+            /* border-radius: 8px; */
+            /* background-color: red; */
+        }
+    </style>
+</head>
+<body class="p-4">
+
+    <div class="container">
+        <h2>فرم ثبت‌نام استاد</h2>
+        <form action="/Regester_teacher" method="post" enctype="multipart/form-data"> 
+            <div class="row">
+                <!-- ستون اول -->
+                <div class="col-md-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input name="name_teacher" type="text" class="form-control" placeholder="نام" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                        <input name="fatherName_teacher" type="text" class="form-control" placeholder="نام پدر" required>
+                       
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                        <input name="LastName_teacher" type="text" class="form-control" placeholder="نام خانوادگی" required>
+                       
+                       
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        <input name="email_teacher" type="email" class="form-control" placeholder="ایمیل" required>
+                       
+                      
+                    </div>
+
+                </div>
+
+                <!-- ستون دوم -->
+                <div class="col-md-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                        <input name="number_teacher" type="number" class="form-control" placeholder="شماره تماس" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                        <input name="number_pasport_teacher" type="text" class="form-control" placeholder=" نمبره تذکره" required>
+                    </div>
+
+                   
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-book-open"></i></span>
+                        <input name="subject_teacher" type="text" class="form-control" placeholder="رشته تحصیلی" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-location-dot"></i></span>
+                        <input name="address_teacher" type="text" class="form-control" placeholder=" آدرس" required>
+                    </div>
+                   
+
+                    
+                </div>
+                
+                   <div class="col-md-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                        <input name="time_teacher" type="text" class="form-control" placeholder="تایم صنف" >
+                    </div>
+                    
+                <div class="input-group mb-3">
+                    <select name="subject_salary_teacher" id="subject_salary_teacher" >
+                        <option  value="">انتخاب معاش</option>     
+                            <option  value="فیصدی">فیصدی</option>
+                            <option value="ساعت وار">ساعت وار</option>
+                            <option value="ماهوار">ماهوار</option>
+                        
+                    </select>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input id="fisad"  style="display: NONE;" name="salary_fisad" type="text" class="form-control" placeholder="فیصدی از صنف" >
+                    <input id="hour"   style="display: none;" name="salary_hour" type="text" class="form-control" placeholder="ساعت وار" >
+                    <input id="month"  style="display: none;" name="salary_month" type="text" class="form-control" placeholder="ماهوار" >
+                </div>
+               
+
+
+
+
+
+                </div>
+                  
+
+            
+            </div>
+
+            <!-- بارگذاری عکس -->
+            <div class="image-upload  mt-3">
+                <label style="background-color: rgba(0, 208, 255, 0.103); box-shadow: none;" for="file-upload"> <span style="color: rgb(0, 183, 255);" class="fa fa-cloud-arrow-up"></span><span style="margin-right: 20px; color: rgb(0, 0, 0);">بارگذاری عکس</span></label>
+                <input name="photo_teacher" type="file" id="file-upload" accept="image/*" required />
+                <div id="image-preview"></div>
+            </div>
+
+            <div class="footer">
+                <button type="submit" class="btn btn-light">ثبت‌نام</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // پیش نمایش تصویر بارگذاری شده
+        const fileInput = document.getElementById("file-upload");
+        const imagePreview = document.getElementById("image-preview");
+
+        fileInput.addEventListener("change", function() {
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement("img");
+                    img.src = e.target.result;
+                    imagePreview.innerHTML = ""; // حذف هر تصویری که قبلاً نمایش داده شده
+                    imagePreview.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+
+        const fisad = document.getElementById('fisad')
+        const hour = document.getElementById('hour')
+        const month = document.getElementById('month')
+        const salaryValue = document.getElementById('subject_salary_teacher')
+            
+        
+        salaryValue.addEventListener("change",()=>{
+                let selectValue = salaryValue.value;
+                if(selectValue ==="فیصدی"){
+                    fisad.style.display='block'
+                hour.style.display='none'
+                month.style.display='none'
+                }
+                
+
+
+            if(selectValue ==="ساعت وار"){
+                    hour.style.display='block'
+                    fisad.style.display='none'
+                    month.style.display='none'
+                }
+
+                if(selectValue ==="ماهوار"){
+                     month.style.display='block'
+                hour.style.display='none'
+                fisad.style.display='none'
+                }
+               if(selectValue ===""){
+                month.style.display='none'
+                hour.style.display='none'
+                fisad.style.display='none'
+
+               }
+               
+
+                
+            })
+            
+
+       
+        
+            
+       
+        // Show input for salary of teacher
+
+    </script>
+
+</body>
+</html>
